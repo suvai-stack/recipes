@@ -1,9 +1,9 @@
 const recipeDatabase = {
     meghana: {
         title: "Meghana Boneless Chicken Biryani",
-        note: "CRITICAL: Remember to reserve exactly 1 kitchen spoon of the Hundi gravy base for the staging assembly layer.",
         description: "Spicy, rich, and layered Andhra style biryani featuring crisp, deep fried boneless chicken pieces.",
         tags: ["Basmati", "Chicken", "Spicy", "Boneless", "Andhra", "Layered"],
+        note: "CRITICAL: Remember to reserve exactly 1 kitchen spoon of the Hundi gravy base for the staging assembly layer.",
         sections: [
             {
                 name: "Grain & Protein Setup",
@@ -15,7 +15,7 @@ const recipeDatabase = {
             {
                 name: "Secret Ground Masala Spices",
                 items: [
-                    { text: "Nutmeg Powder", base: 0.5, unit: "piece" },
+                    { text: "Nutmeg Powder (Tiny shave/grate only)", base: 0.1, unit: "pinch" },
                     { text: "Star Anise", base: 1, unit: "unit" },
                     { text: "Cinnamon", base: 1, unit: "inch" },
                     { text: "Cloves", base: 4, unit: "units" },
@@ -74,11 +74,11 @@ const recipeDatabase = {
                 title: "Step C: Master Hundi Rice-Gravy Base",
                 badge: "Aromatic Layering Build",
                 instructions: [
-                    "In your main Hundi: Heat 4 tbsp chicken-fried oil and 1 tbsp ghee. Sauté whole spices (4 cardamom, 4 cloves, 1.5 inch cinnamon, 1 kapok bud, 1 black cardamom, 1 star anise, half flower mace) for 1 min on low.",
+                    "In your main Hundi: Heat 4 tbsp chicken-fried oil and 1 tbsp ghee. Sauté whole spices (4 cardamom, 4 cloves, 1.5 inch cinnamon, 1 kapok bud, 1 black cardamom, 1 star anise. Skip Mace flower entirely) for 1 min on low.",
                     "Add 3 chopped onions; fry 2 mins. Toss in 1 tsp salt; fry 3-4 mins on medium. Stir in 1 tbsp ginger garlic paste; cook 2 mins.",
                     "Mix 4 sliced green chillies, 36 mint leaves, and 54 coriander leaves; fry 1 min on medium. Add 0.25 tsp turmeric and 1 tsp red chilli powder; cook 2 mins.",
                     "Blend in 1 pureed tomato (cook 1 min), then add 2 tbsp curd (cook 2 mins). Sprinkle a pinch of kasuri methi (cook 1 min). Pour 100ml buffalo milk; let base bubble 2 mins.",
-                    "Squeeze 0.5 big lemon and throw in 0.5 tsp Shahjeera; cook 1 min. Remove 1 standard kitchen spoonful of this base and reserve it in a small bowl."
+                    "Squeeze 0.5 big lemon and throw in 1 tsp Shahjeera; cook 1 min. Remove 1 standard kitchen spoonful of this base and reserve it in a small bowl."
                 ]
             }
         ],
@@ -90,9 +90,9 @@ const recipeDatabase = {
     },
     samba: {
         title: "Authentic Seeraga Samba Chicken Biryani",
-        note: "ESSENTIAL TASTE PARAMETER: Never fry raw cashews in oil. Frying cashew pieces directly in cooking fat causes swift scorching, introducing an unpleasant bitter element that overrides the fragrance of Seeraga Samba rice. Always dry roast on an oil-free pan as instructed below.",
         description: "Traditional Dindigul style biryani using aromatic small grain samba rice, fresh wet grind spice pastes, and baked oven dum.",
         tags: ["Seeraga Samba", "Chicken", "Aromatic", "Wet Grind", "Oven Dum", "Tamil Nadu"],
+        note: "ESSENTIAL TASTE PARAMETER: Never fry raw cashews in oil. Frying cashew pieces directly in cooking fat causes swift scorching, introducing an unpleasant bitter element that overrides the fragrance of Seeraga Samba rice. Always dry roast on an oil-free pan as instructed below.",
         sections: [
             {
                 name: "Biryani Masala Spices (Dry Roast Base)",
@@ -159,7 +159,7 @@ const recipeDatabase = {
                 badge: "Preheat Oven to 375°F",
                 instructions: [
                     "Add the chicken pieces and half cup of curd. Fry for 2-3 minutes to seal the surface of the meat.",
-                    "Pour in 55 cups of boiling hot water followed by exactly 1 cup of the reserved water the rice was soaked in (accounting for the 05 cup liquid already released by meat). Total liquid matches the strict 2:1 ratio (7 cups total).",
+                    "Pour in 5.5 cups of boiling hot water followed by exactly 1 cup of the reserved water the rice was soaked in (accounting for the 0.5 cup liquid already released by meat). Total liquid matches the strict 2:1 ratio (7 cups total).",
                     "Cover the pot tightly. Bring to a boil until strong steam escapes and bubbling is clearly visible.",
                     "Taste test the liquid asset: Add approx 1 extra tbsp salt here. The liquid broth must taste slightly saltier than standard curries to balance the grain expansion."
                 ]
