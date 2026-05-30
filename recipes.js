@@ -2,6 +2,8 @@ const recipeDatabase = {
     meghana: {
         title: "Meghana Boneless Chicken Biryani",
         note: "CRITICAL: Remember to reserve exactly 1 kitchen spoon of the Hundi gravy base for the staging assembly layer.",
+        description: "Spicy, rich, and layered Andhra style biryani featuring crisp, deep fried boneless chicken pieces.",
+        tags: ["Basmati", "Chicken", "Spicy", "Boneless", "Andhra", "Layered"],
         sections: [
             {
                 name: "Grain & Protein Setup",
@@ -89,6 +91,8 @@ const recipeDatabase = {
     samba: {
         title: "Authentic Seeraga Samba Chicken Biryani",
         note: "ESSENTIAL TASTE PARAMETER: Never fry raw cashews in oil. Frying cashew pieces directly in cooking fat causes swift scorching, introducing an unpleasant bitter element that overrides the fragrance of Seeraga Samba rice. Always dry roast on an oil-free pan as instructed below.",
+        description: "Traditional Dindigul style biryani using aromatic small grain samba rice, fresh wet grind spice pastes, and baked oven dum.",
+        tags: ["Seeraga Samba", "Chicken", "Aromatic", "Wet Grind", "Oven Dum", "Tamil Nadu"],
         sections: [
             {
                 name: "Biryani Masala Spices (Dry Roast Base)",
