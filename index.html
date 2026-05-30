@@ -3,33 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suvai Stack</title>
+    <title>Suvai Stack Hub</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #fdfbf7; color: #1e293b; padding: 16px; max-width: 600px; margin: 0 auto; }
-        header { text-align: center; padding: 30px 0; border-bottom: 2px dashed #b45309; margin-bottom: 20px; }
-        h1 { color: #b45309; text-transform: uppercase; letter-spacing: 0.5px; font-size: 24px; }
-        p { font-style: italic; color: #64748b; font-size: 14px; margin-top: 4px; }
-        .menu-list { margin-top: 24px; }
-        .menu-card { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 16px; margin-bottom: 12px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: transform 0.1s ease; }
-        .menu-card:active { transform: scale(0.98); }
-        a { color: #b45309; text-decoration: none; font-weight: bold; font-size: 16px; display: block; }
-        .tagline { font-size: 12px; color: #64748b; font-weight: normal; margin-top: 4px; }
+        :root {
+            --bg-color: #fdfbf7;
+            --text-color: #1e293b;
+            --primary-color: #b45309;
+            --primary-light: #fef3c7;
+            --border-color: #cbd5e1;
+            --card-bg: #ffffff;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg-color); color: var(--text-color); padding: 16px; max-width: 600px; margin: 0 auto; }
+        
+        header { text-align: center; padding: 24px 0 16px 0; border-bottom: 2px dashed var(--primary-color); margin-bottom: 16px; }
+        header h1 { color: var(--primary-color); text-transform: uppercase; letter-spacing: 0.5px; font-size: 24px; }
+        header p { font-style: italic; color: #64748b; font-size: 13px; margin-top: 4px; }
+
+        /* Search Controls */
+        .search-wrapper { margin-bottom: 12px; }
+        .search-input { width: 100%; padding: 12px 16px; font-size: 15px; border: 1px solid var(--border-color); border-radius: 8px; background: var(--card-bg); color: var(--text-color); outline: none; transition: border-color 0.15s ease; }
+        .search-input:focus { border-color: var(--primary-color); box-shadow: 0 0 0 2px var(--primary-light); }
+
+        /* Tag Cloud */
+        .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+        .tag-pill { background: #e2e8f0; color: var(--text-color); font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 16px; border: none; cursor: pointer; transition: all 0.1s ease; }
+        .tag-pill.active { background: var(--primary-color); color: white; }
+
+        /* Menu Cards */
+        .menu-list { display: flex; flex-direction: column; gap: 12px; }
+        .menu-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 16px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); display: block; text-decoration: none; color: inherit; transition: transform 0.1s ease; }
+        .menu-card:active { transform: scale(0.99); }
+        
+        .recipe-title { color: var(--primary-color); font-weight: bold; font-size: 16px; margin-bottom: 4px; }
+        .recipe-desc { font-size: 13px; color: #64748b; line-height: 1.4; margin-bottom: 8px; }
+        
+        .card-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+        .card-tag-mini { font-size: 10px; font-weight: bold; background: var(--primary-light); color: var(--primary-color); padding: 2px 6px; border-radius: 4px; }
+        
+        .no-results { text-align: center; color: #64748b; font-size: 14px; padding: 30px; font-style: italic; }
+        .hidden { display: none !important; }
     </style>
 </head>
 <body>
+
     <header>
         <h1>Suvai Stack</h1>
         <p>Precision engineered for the authentic South Indian kitchen.</p>
     </header>
-    <main class="menu-list">
-        <div class="menu-card">
-            <a href="recipe.html?id=meghana">Meghana Boneless Chicken Biryani</a>
-            <div class="tagline">Spicy, rich, and layered variant with crisp deep-fried boneless chunks.</div>
+
+    <div class="search-wrapper">
+        <input type="text" id="search-box" class="search-input" placeholder="Search recipes, grains, or keywords...">
+    </div>
+
+    <div class="tag-cloud" id="tag-cloud">
+        <button class="tag-pill active" onclick="filterByTag('All', this)">All Recipes</button>
         </div>
-        <div class="menu-card">
-            <a href="recipe.html?id=samba">Authentic Seeraga Samba Chicken Biryani</a>
-            <div class="tagline">Traditional Dindigul style built on small grain aroma and wet grind bases.</div>
-        </div>
-    </main>
+
+    <main class="menu-list" id="menu-list">
+        </main>
+
+    <script src="recipes.js"></script>
+    <script>
+        let selectedTag = "All";
+        let searchQuery = "";
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (typeof recipeDatabase === 'undefined') {
+                document.getElementById('menu-list').innerHTML = `<div class="no-results">Error: recipes.js failed to load.</div>`;
+                return;
+            }
+            initializeHub();
+        });
+
+        function initializeHub() {
+            const tagCloud = document.getElementById('tag-cloud');
+            const menuList = document.getElementById('menu-list');
+            const searchBox = document.getElementById('search-box');
+
+            // 1. Extract unique tags dynamically across the entire database
+            const uniqueTags = new Set();
+            Object.values(recipeDatabase).forEach(recipe => {
+                if (recipe.tags && Array.isArray(recipe.tags)) {
+                    recipe.tags.forEach(t => uniqueTags.add(t));
+                }
+            });
+
+            // 2. Render Tag Filters
+            uniqueTags.forEach(tag => {
+                const btn = document.createElement('button');
+                btn.className = 'tag-pill';
+                btn.textContent = tag;
+                btn.onclick = (e) => filterByTag(tag, btn);
+                tagCloud.appendChild(btn);
+            });
+
+            // 3. Render Recipe Target Cards
+            Object.entries(recipeDatabase).forEach(([id, recipe]) => {
+                const card = document.createElement('a');
+                card.href = `recipe.html?id=${id}`;
+                card.className = 'menu-card';
+                card.setAttribute('data-id', id);
+                
+                // Track tags natively on the element for simple filtering down the line
+                card.setAttribute('data-tags', (recipe.tags || []).join(','));
+
+                let miniTagsHTML = '';
+                if (recipe.tags) {
+                    recipe.tags.forEach(t => { miniTagsHTML += `<span class="card-tag-mini">${t}</span>`; });
+                }
+
+                card.innerHTML = `
+                    <div class="recipe-title">${recipe.title}</div>
+                    <div class="recipe-desc">${recipe.description || 'Authentic traditional workflow.'}</div>
+                    <div class="card-tags">${miniTagsHTML}</div>
+                `;
+                menuList.appendChild(card);
+            });
+
+            // 4. Bind Live Search Input Input Event Listener
+            searchBox.addEventListener('input', (e) => {
+                searchQuery = e.target.value.toLowerCase().trim();
+                executeCombinedFilter();
+            });
+        }
+
+        function filterByTag(tag, buttonElement) {
+            // Update active visual status
+            document.querySelectorAll('.tag-pill').forEach(btn => btn.classList.remove('active'));
+            buttonElement.classList.add('active');
+            
+            selectedTag = tag;
+            executeCombinedFilter();
+        }
+
+        function executeCombinedFilter() {
+            const cards = document.querySelectorAll('.menu-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const id = card.getAttribute('data-id');
+                const recipe = recipeDatabase[id];
+                const itemTags = card.getAttribute('data-tags').split(',');
+                
+                const matchesTag = (selectedTag === "All" || itemTags.includes(selectedTag));
+                
+                const searchableText = `${recipe.title} ${recipe.description || ''} ${itemTags.join(' ')}`.toLowerCase();
+                const matchesSearch = searchableText.includes(searchQuery);
+
+                if (matchesTag && matchesSearch) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            // Handle edge case when nothing matches query conditions
+            let noResultMsg = document.getElementById('empty-state');
+            if (visibleCount === 0) {
+                if (!noResultMsg) {
+                    noResultMsg = document.createElement('div');
+                    noResultMsg.id = 'empty-state';
+                    noResultMsg.className = 'no-results';
+                    noResultMsg.textContent = "No authentic matches found for your criteria.";
+                    document.getElementById('menu-list').appendChild(noResultMsg);
+                }
+            } else if (noResultMsg) {
+                noResultMsg.remove();
+            }
+        }
+    </script>
 </body>
 </html>
