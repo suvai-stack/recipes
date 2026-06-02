@@ -170,5 +170,99 @@ const recipeDatabase = {
         dumBadge: "45 Mins Baked Dum",
         dumTimer: 2700,
         dumInstruction: "Squeeze the juice of 0.5 lemon into the boiling pot. Strain the Seeraga Samba rice completely and drop it into the vessel. Stir continuously on medium-high heat so grains do not stick to the pot base. Once the rice has absorbed the surface water and hit a thick consistency, dress with a final touch of ghee if desired. Seal the container rim seamlessly with heavy aluminum foil, press the lid on flat, and transition to the preheated oven. Bake at 375°F for exactly 45 minutes. Mix gently from the bottom up before serving."
+    },
+    butter_chicken: {
+        title: "Restaurant Style Butter Chicken",
+        description: "Rich, velvety Murgh Makhani optimized with juicy boneless chicken thighs grilled in the air fryer and finished with a high-fat heavy cream emulsification.",
+        tags: ["Chicken", "Thigh Meat", "Air Fryer", "Creamy", "Makhani", "North Indian"],
+        note: "CRITICAL: Using 40% fat heavy whipping cream requires a strict 3-4 tbsp limit. Higher fat content splits easily if overheated; integrate on lowest heat setting.",
+        sections: [
+            {
+                name: "Protein & First Marination (Rest 15 Mins)",
+                items: [
+                    { text: "Boneless Chicken Thigh Meat (Cut into bite-sized pieces)", base: 800, unit: "g" },
+                    { text: "Ginger Garlic Paste", base: 1, unit: "tsp" },
+                    { text: "Kashmiri Chilli Powder", base: 0.5, unit: "tbsp" },
+                    { text: "Turmeric Powder", base: 1, unit: "pinch" },
+                    { text: "Lemon Juice", base: 1, unit: "tsp" },
+                    { text: "Salt", base: 1, unit: "to taste" }
+                ]
+            },
+            {
+                name: "Second Marination & Smoked Infusion",
+                items: [
+                    { text: "Mustard Oil", base: 2, unit: "tbsp" },
+                    { text: "Kashmiri Red Chilli Powder", base: 1, unit: "tbsp" },
+                    { text: "Cumin Powder", base: 1, unit: "tsp" },
+                    { text: "Coriander Powder", base: 1, unit: "tsp" },
+                    { text: "Garam Masala Powder", base: 1, unit: "tsp" },
+                    { text: "Ginger Garlic Paste", base: 1, unit: "tsp" },
+                    { text: "Hung Curd", base: 1.5, unit: "tbsp" },
+                    { text: "Live Charcoal (For smoke step) + Ghee/Butter", base: 0.5, unit: "tsp" }
+                ]
+            },
+            {
+                name: "Makhani Gravy Reductions",
+                items: [
+                    { text: "Medium Tomatoes (Chopped)", base: 5, unit: "units" },
+                    { text: "Medium Onion (Chopped)", base: 1, unit: "unit" },
+                    { text: "Garlic Cloves", base: 6, unit: "cloves" },
+                    { text: "Ginger (Sliced)", base: 1, unit: "inch piece" },
+                    { text: "Coriander Stems (Cleaned)", base: 1, unit: "handful" },
+                    { text: "Green Cardamom: 4, Cloves: 6, Cinnamon: 1 inch, Bay Leaves: 3", base: 1, unit: "batch whole spices" },
+                    { text: "Kashmiri Red Chilli Powder", base: 0.5, unit: "tbsp" },
+                    { text: "Cooking Oil or Butter (For base sauté)", base: 2, unit: "tbsp" }
+                ]
+            },
+            {
+                name: "Butter Chicken Assembly & Sauce Finishing",
+                items: [
+                    { text: "Butter (Melted over low heat)", base: 4, unit: "tbsp" },
+                    { text: "Kashmiri Red Chilli Powder", base: 0.5, unit: "tbsp" },
+                    { text: "Ginger Juliennes", base: 1, unit: "tbsp" },
+                    { text: "Kasoori Methi Powder", base: 0.5, unit: "tsp" },
+                    { text: "Honey", base: 1, unit: "tsp" },
+                    { text: "Heavy Whipping Cream (40% Fat Content - Measured down)", base: 4, unit: "tbsp" },
+                    { text: "Garam Masala + Cardamom Powder Finishing (Optional)", base: 1, unit: "pinch" }
+                ]
+            }
+        ],
+        steps: [
+            {
+                title: "Step A: Double Marination & Smoke Lock",
+                badge: "Smoke Capture Phase",
+                timer: 420,
+                instructions: [
+                    "Toss thigh meat completely with the First Marination ingredients. Rest 15 minutes.",
+                    "Incorporate all Second Marination parameters directly into the meat layer until fully uniform.",
+                    "Ignite charcoal unit until red hot. Place inside a small foil cup centered over the chicken, drop 0.5 tsp ghee/butter on it, and lid tightly for 7 minutes to seal smoke profiles."
+                ]
+            },
+            {
+                title: "Step B: Air Fryer Tandoori Grilling",
+                badge: "400°F Blistered Texture",
+                timers: [ { name: "Side 1 Cook", secs: 420 }, { name: "Flip & Baste", secs: 420 } ],
+                instructions: [
+                    "Preheat your air fryer to 400°F (200°C). Lay smoked thigh chunks out flat in a single tier inside the basket.",
+                    "Air fry at 400°F for 12-15 minutes total. Flip segments midway through, basting heavily with the 2 tbsp melted butter/oil to retain moisture and create charred edges."
+                ]
+            },
+            {
+                title: "Step C: Makhani Base Reduction",
+                badge: "15 Mins Tomato Simmer",
+                timer: 900,
+                instructions: [
+                    "Heat 2 tbsp oil/butter in your skillet. Bloom whole cardamoms, cloves, cinnamon, and bay leaves for 30 seconds.",
+                    "Incorporate onions, ginger, garlic cloves, and coriander stems. Sauté 2 minutes until translucent.",
+                    "Stir in chopped tomatoes, 0.5 tbsp chilli powder, salt, and 0.5 cup water. Cover and simmer 15 minutes on medium heat until tomatoes turn to mush.",
+                    "Discard bay leaves and cinnamon stick. Blitz base smooth in a blender, then push through a fine sifter/sieve to capture a silky puree."
+                ]
+            }
+        ],
+        showLayeringTable: false,
+        dumTitle: "Step D: Gravy Assembly & Finish",
+        dumBadge: "5 Mins Low Flame Emulsification",
+        dumTimer: 300,
+        dumInstruction: "Melt 3-4 tbsp butter on low flame in a clean pan. Sauté 0.5 tbsp chilli powder and ginger juliennes for 10 seconds. Pour in sifted makhani sauce and bubble safely. Add tandoori thigh pieces; simmer 5 minutes on low. Add honey, kasoori methi, and salt adjustment. Drop heat to lowest tier; slowly work in 3-4 tbsp of 40% fat heavy whipping cream until completely integrated. Garnish with ginger ribbons and cream drizzle."
     }
 };
