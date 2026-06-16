@@ -343,7 +343,7 @@ function formatTimerLabel(secs: number): string {
     .sticky-nav {
         position: sticky;
         top: 0;
-        background: rgba(253, 251, 247, 0.96);
+        background: var(--nav-bg);
         padding: 8px 0;
         z-index: 100;
         border-bottom: 1px solid var(--border-color);
@@ -359,7 +359,7 @@ function formatTimerLabel(secs: number): string {
         font-weight: 700;
         padding: 6px 12px;
         border-radius: 16px;
-        background: #e2e8f0;
+        background: var(--pill-bg);
     }
 
     h2 {
@@ -372,8 +372,9 @@ function formatTimerLabel(secs: number): string {
     }
 
     .alert-box {
-        background-color: #fffbec;
-        border: 1px solid #ffe49e;
+        background-color: var(--alert-bg);
+        border: 1px solid var(--alert-border);
+        color: var(--alert-text);
         border-radius: 8px;
         padding: 12px;
         margin-bottom: 12px;
@@ -386,7 +387,7 @@ function formatTimerLabel(secs: number): string {
         display: flex;
         align-items: flex-start;
         padding: 8px 0;
-        border-bottom: 1px solid #f1f5f9;
+        border-bottom: 1px solid var(--border-color);
         cursor: pointer;
     }
     .interactive-item:last-child {
