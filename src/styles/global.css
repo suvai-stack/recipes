@@ -13,6 +13,21 @@
     --hover-bg: #f8f5f1;
 }
 
+:root[data-theme="dark"] {
+    --bg-color: #1a1512;
+    --text-color: #e8e0d5;
+    --primary-color: #d97858;
+    --primary-light: #36221b;
+    --border-color: #382d27;
+    --card-bg: #241d19;
+    --muted-text: #a39589;
+    --danger-color: #fca5a5;
+    --timer-bg: #2e2520;
+    --success-color: #4ade80;
+    --pill-bg: #362c26;
+    --hover-bg: #2e2520;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
