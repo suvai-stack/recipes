@@ -1,0 +1,162 @@
+---
+interface Props {
+    tags: string[];
+}
+
+const { tags } = Astro.props;
+---
+
+<div class="tag-section" id="tag-section">
+    <button class="tag-toggle" id="tag-toggle-btn">
+        <span>
+            Filter by Tag
+            <span class="active-filter-badge" id="active-filter-badge"></span>
+        </span>
+        <span class="chevron">▼</span>
+    </button>
+    <div class="tag-cloud-wrapper">
+        <div class="tag-cloud" id="tag-cloud">
+            <button class="tag-pill active" data-tag="All">All Recipes</button>
+            {tags.map(tag => (
+                <button class="tag-pill" data-tag={tag}>{tag}</button>
+            ))}
+        </div>
+    </div>
+</div>
+
+<script>
+    function initTagCloud() {
+        const section = document.getElementById('tag-section');
+        const toggleBtn = document.getElementById('tag-toggle-btn');
+        const badge = document.getElementById('active-filter-badge');
+        const pills = document.querySelectorAll('.tag-pill');
+
+        toggleBtn?.addEventListener('click', () => {
+            section?.classList.toggle('open');
+        });
+
+        pills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                const tag = pill.getAttribute('data-tag') || 'All';
+
+                // Update active state
+                pills.forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+
+                // Update badge
+                if (badge) {
+                    badge.textContent = tag === 'All' ? '' : `· ${tag}`;
+                }
+
+                // Auto-collapse
+                section?.classList.remove('open');
+
+                // Dispatch custom event
+                document.dispatchEvent(new CustomEvent('tagfilter', { detail: { tag } }));
+            });
+        });
+    }
+
+    initTagCloud();
+</script>
+
+<style>
+    .tag-section {
+        margin-bottom: 20px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        background: var(--card-bg);
+        overflow: hidden;
+    }
+    .tag-toggle {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 14px;
+        min-height: 48px;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text-color);
+        background: var(--card-bg);
+        border: none;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+    }
+    .tag-toggle .chevron {
+        display: inline-block;
+        transition: transform 0.25s ease;
+        font-size: 12px;
+        color: #998779;
+    }
+    .tag-section.open .tag-toggle {
+        border-bottom: 1px solid var(--border-color);
+    }
+    .tag-section.open .chevron {
+        transform: rotate(180deg);
+    }
+    .tag-cloud-wrapper {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+        padding: 0 14px;
+        background: var(--bg-color);
+    }
+    .tag-section.open .tag-cloud-wrapper {
+        max-height: 500px;
+        padding: 10px 14px 12px 14px;
+    }
+    .tag-cloud {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+    .tag-pill {
+        background: #eee7dd;
+        color: var(--text-color);
+        font-size: 13px;
+        font-weight: 600;
+        padding: 8px 14px;
+        min-height: 36px;
+        border-radius: 16px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.1s ease;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+    }
+    .tag-pill.active {
+        background: var(--primary-color);
+        color: white;
+    }
+    .active-filter-badge {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--primary-color);
+        margin-left: 4px;
+    }
+
+    @media (max-width: 380px) {
+        .tag-pill {
+            font-size: 12px;
+            padding: 7px 10px;
+        }
+        .tag-toggle {
+            padding: 12px 10px;
+        }
+        .tag-section.open .tag-cloud-wrapper {
+            padding: 0 10px 10px 10px;
+        }
+    }
+
+    @media (pointer: coarse) {
+        .tag-pill {
+            padding: 10px 16px;
+            min-height: 40px;
+        }
+        .tag-cloud {
+            gap: 8px;
+        }
+    }
+</style>

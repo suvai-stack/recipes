@@ -1,0 +1,514 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+    const modules = import.meta.glob('../../data/recipes/*.json', { eager: true });
+    return Object.entries(modules).map(([path, mod]) => ({
+        params: { id: path.split('/').pop().replace('.json', '') },
+        props: { recipe: mod.default },
+    }));
+}
+
+const { recipe } = Astro.props;
+
+function formatSecondsToClock(totalSecs: number): string {
+    const m = Math.floor(totalSecs / 60).toString().padStart(2, '0');
+    const s = (totalSecs % 60).toString().padStart(2, '0');
+    return `${m}:${s}`;
+}
+
+function formatTimerLabel(secs: number): string {
+    return secs >= 60 ? secs / 60 + 'm' : secs + 's';
+}
+---
+
+<BaseLayout title={recipe.title}>
+    <header>
+        <a href={`${import.meta.env.BASE_URL}/`} class="back-link">← Home</a>
+        <h1>{recipe.title}</h1>
+        <div class="scale-container">
+            <span>Batch Scale:</span>
+            <button class="scale-btn" id="scale-down">-</button>
+            <span id="scale-factor">1.0x</span>
+            <button class="scale-btn" id="scale-up">+</button>
+        </div>
+    </header>
+
+    <div class="sticky-nav">
+        <a href="#misen">1. Prep Checklist</a>
+        <a href="#thermal">2. Thermal Steps</a>
+        <a href="#layering">3. Assembly</a>
+    </div>
+
+    <div class="alert-box">
+        <span>⚠️</span>
+        <div>{recipe.note}</div>
+    </div>
+
+    <h2 id="misen">1. Prep &amp; Mise En Place</h2>
+
+    {recipe.sections.map((sec: any) => (
+        <div class="card open">
+            <div class="card-header">
+                <span>
+                    <span class="section-title" style="font-weight:700; font-size:13px; color:var(--primary-color);">{sec.name}</span>
+                    <span class="card-progress"></span>
+                </span>
+                <span class="card-chevron">▼</span>
+            </div>
+            <div class="card-body">
+                {sec.items.map((item: any) => (
+                    <label class="interactive-item">
+                        <input type="checkbox" />
+                        <span class="item-text">{item.text}: <span class="qty-num" data-base={item.base}>{item.base}</span> {item.unit}.</span>
+                    </label>
+                ))}
+            </div>
+        </div>
+    ))}
+
+    <h2 id="thermal">2. Thermal Processing Steps</h2>
+
+    {recipe.steps.map((st: any) => (
+        <div class="card open">
+            <div class="card-header">
+                <span>
+                    <span class="section-title step-header" style="display:inline;">{st.title}</span>
+                    <span class="time-badge" style="margin-left:6px;">{st.badge}</span>
+                    <span class="card-progress"></span>
+                </span>
+                <span class="card-chevron">▼</span>
+            </div>
+            <div class="card-body">
+                <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                    {st.timer && (
+                        <div class="timer-module" data-time={st.timer}>
+                            <button class="timer-btn">Start {formatTimerLabel(st.timer)}</button>
+                            <span class="timer-display">{formatSecondsToClock(st.timer)}</span>
+                        </div>
+                    )}
+                    {st.timers && st.timers.map((t: any) => (
+                        <div class="timer-module" data-time={t.secs}>
+                            <button class="timer-btn">{t.name} ({formatTimerLabel(t.secs)})</button>
+                            <span class="timer-display">{formatSecondsToClock(t.secs)}</span>
+                        </div>
+                    ))}
+                </div>
+                <div class="step-block">
+                    {st.instructions.map((ins: string) => (
+                        <label class="interactive-item">
+                            <input type="checkbox" />
+                            <span class="item-text">{ins}</span>
+                        </label>
+                    ))}
+                </div>
+            </div>
+        </div>
+    ))}
+
+    <h2 id="layering">3. Final Assembly</h2>
+
+    <div class="card assembly-card">
+        {recipe.layeringTable && (
+            <div style="padding:14px 14px 0 14px;">
+                <div style="font-weight:700; margin-bottom:6px; font-size:13px; color:var(--primary-color);">Structural Layer Blueprint</div>
+                <table class="layer-table">
+                    {recipe.layeringTable.map((row: any) => {
+                        const rowClass = row.type === 'top' ? 'l-top' : row.type === 'rice' ? 'l-rice' : 'l-gravy';
+                        return (
+                            <tr class={rowClass}>
+                                <td set:html={
+                                    row.scalableValues
+                                        ? row.text.replace(/(\d+(?:\.\d+)?)/g, (match: string, num: string, offset: number) => {
+                                            // Only replace values that are in the scalableValues array
+                                            const numVal = parseFloat(num);
+                                            if (row.scalableValues.includes(numVal)) {
+                                                return `<span class="qty-num" data-base="${numVal}">${numVal}</span>`;
+                                            }
+                                            return match;
+                                        })
+                                        : row.text
+                                } />
+                            </tr>
+                        );
+                    })}
+                </table>
+            </div>
+        )}
+
+        <div style="padding:14px;">
+            <div class="step-header">
+                <span>{recipe.dumTitle}</span>
+                <span class="time-badge">{recipe.dumBadge}</span>
+            </div>
+            {recipe.dumTimer > 0 && (
+                <div class="timer-module" data-time={recipe.dumTimer}>
+                    <button class="timer-btn">Start Assembly</button>
+                    <span class="timer-display">{formatSecondsToClock(recipe.dumTimer)}</span>
+                </div>
+            )}
+            <label class="interactive-item" style="margin-top:6px;">
+                <input type="checkbox" />
+                <span class="item-text">{recipe.dumInstruction}</span>
+            </label>
+        </div>
+    </div>
+
+    <footer>Suvai Stack Engine Shell</footer>
+</BaseLayout>
+
+<script>
+    // ── Accordion Toggle ──
+    document.querySelectorAll('.card-header').forEach(header => {
+        header.addEventListener('click', () => {
+            header.closest('.card')?.classList.toggle('open');
+        });
+    });
+
+    // ── Checkbox Tracking ──
+    function updateCardProgress(card: Element) {
+        const boxes = card.querySelectorAll('input[type="checkbox"]');
+        const checked = card.querySelectorAll('input[type="checkbox"]:checked');
+        const progressEl = card.querySelector('.card-progress');
+        if (!boxes.length || !progressEl) return;
+
+        const total = boxes.length;
+        const done = checked.length;
+        progressEl.textContent = `(${done}/${total})`;
+
+        if (done === total) {
+            card.classList.add('completed');
+            card.classList.remove('open');
+        } else {
+            card.classList.remove('completed');
+        }
+    }
+
+    // Initialize all card progress on load
+    document.querySelectorAll('.card').forEach(card => updateCardProgress(card));
+
+    // Listen for checkbox changes
+    document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+        cb.addEventListener('change', () => {
+            const card = cb.closest('.card');
+            if (card) updateCardProgress(card);
+        });
+    });
+
+    // ── Scale Adjustment ──
+    let currentScale = 1.0;
+
+    function alterScale(delta: number) {
+        let target = currentScale + delta;
+        if (target < 0.5 || target > 4.0) return;
+        currentScale = target;
+        const factorEl = document.getElementById('scale-factor');
+        if (factorEl) factorEl.textContent = currentScale.toFixed(1) + 'x';
+
+        document.querySelectorAll('.qty-num').forEach(node => {
+            let baseVal = parseFloat(node.getAttribute('data-base') || '0');
+            let rawScaled = baseVal * currentScale;
+            let cleanVal = rawScaled % 1 === 0
+                ? rawScaled.toString()
+                : rawScaled.toFixed(2).replace(/\.?0+$/, '');
+            node.textContent = cleanVal;
+        });
+    }
+
+    document.getElementById('scale-down')?.addEventListener('click', () => alterScale(-0.5));
+    document.getElementById('scale-up')?.addEventListener('click', () => alterScale(0.5));
+
+    // ── Timer Start/Stop ──
+    const activeIntervals = new Map<Element, number>();
+
+    function formatSecondsToClock(totalSecs: number): string {
+        const m = Math.floor(totalSecs / 60).toString().padStart(2, '0');
+        const s = (totalSecs % 60).toString().padStart(2, '0');
+        return `${m}:${s}`;
+    }
+
+    function fireAcousticNote() {
+        try {
+            const audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
+            const osc = audioCtx.createOscillator();
+            const nodeGain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(880, audioCtx.currentTime);
+            nodeGain.gain.setValueAtTime(0.4, audioCtx.currentTime);
+            osc.connect(nodeGain);
+            nodeGain.connect(audioCtx.destination);
+            osc.start();
+            setTimeout(() => osc.stop(), 350);
+        } catch (err) {
+            console.log('Audio node bypass:', err);
+        }
+    }
+
+    document.querySelectorAll('.timer-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const wrap = btn.closest('.timer-module');
+            if (!wrap) return;
+            const output = wrap.querySelector('.timer-display');
+            if (!output) return;
+            const totalSecs = parseInt(wrap.getAttribute('data-time') || '0', 10);
+
+            if (activeIntervals.has(wrap)) {
+                clearInterval(activeIntervals.get(wrap)!);
+                activeIntervals.delete(wrap);
+                btn.textContent = 'Start ' + (totalSecs >= 60 ? totalSecs / 60 + 'm' : totalSecs + 's');
+                btn.classList.remove('active');
+                output.textContent = formatSecondsToClock(totalSecs);
+            } else {
+                let secondsLeft = totalSecs;
+                btn.textContent = 'Reset';
+                btn.classList.add('active');
+
+                const id = setInterval(() => {
+                    secondsLeft--;
+                    if (secondsLeft <= 0) {
+                        clearInterval(id);
+                        activeIntervals.delete(wrap);
+                        output.textContent = '00:00';
+                        btn.textContent = 'Start ' + (totalSecs >= 60 ? totalSecs / 60 + 'm' : totalSecs + 's');
+                        btn.classList.remove('active');
+                        fireAcousticNote();
+                    } else {
+                        output.textContent = formatSecondsToClock(secondsLeft);
+                    }
+                }, 1000);
+                activeIntervals.set(wrap, id);
+            }
+        });
+    });
+</script>
+
+<style>
+    header {
+        text-align: center;
+        padding: 20px 0;
+        border-bottom: 2px dashed var(--primary-color);
+        margin-bottom: 16px;
+        position: relative;
+    }
+    .back-link {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        text-decoration: none;
+        color: var(--primary-color);
+        font-size: 13px;
+        font-weight: 600;
+        padding: 8px 12px;
+        border-radius: 8px;
+        background: var(--primary-light);
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+    }
+    .back-link:active {
+        opacity: 0.7;
+    }
+    h1 {
+        font-size: 20px;
+        color: var(--primary-color);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 6px;
+    }
+
+    .scale-container {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        background: var(--primary-light);
+        padding: 8px 16px;
+        border-radius: 20px;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+    .scale-btn {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .sticky-nav {
+        position: sticky;
+        top: 0;
+        background: rgba(253, 251, 247, 0.96);
+        padding: 8px 0;
+        z-index: 100;
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        justify-content: space-around;
+        backdrop-filter: blur(4px);
+        margin-bottom: 16px;
+    }
+    .sticky-nav a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 6px 12px;
+        border-radius: 16px;
+        background: #e2e8f0;
+    }
+
+    h2 {
+        font-size: 16px;
+        color: var(--primary-color);
+        margin: 20px 0 8px 0;
+        padding-bottom: 4px;
+        border-bottom: 1px solid var(--border-color);
+        text-transform: uppercase;
+    }
+
+    .alert-box {
+        background-color: #fffbec;
+        border: 1px solid #ffe49e;
+        border-radius: 8px;
+        padding: 12px;
+        margin-bottom: 12px;
+        display: flex;
+        gap: 10px;
+        font-size: 13px;
+    }
+
+    .interactive-item {
+        display: flex;
+        align-items: flex-start;
+        padding: 8px 0;
+        border-bottom: 1px solid #f1f5f9;
+        cursor: pointer;
+    }
+    .interactive-item:last-child {
+        border-bottom: none;
+    }
+
+    input[type="checkbox"] {
+        min-width: 22px;
+        min-height: 22px;
+        width: 22px;
+        height: 22px;
+        margin-right: 10px;
+        cursor: pointer;
+        accent-color: var(--primary-color);
+        margin-top: 1px;
+    }
+    input[type="checkbox"]:checked + span {
+        text-decoration: line-through;
+        color: #94a3b8;
+    }
+    .item-text {
+        font-size: 14px;
+        flex-grow: 1;
+    }
+    .qty-num {
+        font-weight: 700;
+        color: var(--primary-color);
+    }
+
+    .step-block {
+        border-left: 3px solid var(--primary-color);
+        padding-left: 8px;
+        margin-top: 6px;
+    }
+    .step-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: 700;
+        font-size: 14px;
+        margin-top: 12px;
+    }
+    .time-badge {
+        background-color: var(--primary-light);
+        color: var(--primary-color);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 11px;
+    }
+
+    .timer-module {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--timer-bg);
+        border: 1px solid var(--border-color);
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 13px;
+        margin: 6px 0;
+    }
+    .timer-btn {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .timer-btn.active {
+        background: var(--danger-color);
+    }
+    .timer-display {
+        font-family: monospace;
+        font-weight: bold;
+    }
+
+    .layer-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 8px;
+        font-size: 13px;
+    }
+    .layer-table td {
+        padding: 6px;
+        border: 1px solid var(--border-color);
+        text-align: center;
+    }
+    .l-top {
+        background-color: #ffedd5;
+        font-weight: bold;
+    }
+    .l-rice {
+        background-color: #f8fafc;
+    }
+    .l-gravy {
+        background-color: #fff7ed;
+        font-weight: bold;
+    }
+
+    .assembly-card {
+        overflow: visible;
+    }
+    .assembly-card .card-body {
+        max-height: none;
+        padding: 14px;
+    }
+
+    .err-msg {
+        text-align: center;
+        color: var(--danger-color);
+        padding: 40px 20px;
+        font-weight: bold;
+    }
+
+    footer {
+        text-align: center;
+        padding: 12px 0;
+        color: #64748b;
+        font-size: 11px;
+    }
+</style>

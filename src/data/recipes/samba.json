@@ -1,0 +1,83 @@
+{
+    "title": "Authentic Seeraga Samba Chicken Biryani",
+    "description": "Traditional Dindigul style biryani using aromatic small grain samba rice, fresh wet grind spice pastes, and baked oven dum.",
+    "tags": ["Seeraga Samba", "Chicken", "Aromatic", "Wet Grind", "Oven Dum", "Tamil Nadu"],
+    "note": "ESSENTIAL TASTE PARAMETER: Never fry raw cashews in oil. Frying cashew pieces directly in cooking fat causes swift scorching, introducing an unpleasant bitter element that overrides the fragrance of Seeraga Samba rice. Always dry roast on an oil-free pan as instructed below.",
+    "sections": [
+        {
+            "name": "Biryani Masala Spices (Dry Roast Base)",
+            "items": [
+                { "text": "Cashews", "base": 10, "unit": "units" },
+                { "text": "Cloves", "base": 6, "unit": "units" },
+                { "text": "Cardamom", "base": 6, "unit": "units" },
+                { "text": "Star Anise", "base": 1, "unit": "unit" },
+                { "text": "Kalpaasi", "base": 2, "unit": "tbsp" },
+                { "text": "Sombu", "base": 1, "unit": "tsp" },
+                { "text": "Pattai", "base": 3.5, "unit": "inches" },
+                { "text": "Mace Flower (Jathipathri)", "base": 1, "unit": "unit" },
+                { "text": "Poppy Seeds", "base": 1, "unit": "tbsp" },
+                { "text": "Nutmeg Powder", "base": 1, "unit": "pinch" }
+            ]
+        },
+        {
+            "name": "Main Ingredients & Base Inventory",
+            "items": [
+                { "text": "Seeraga Samba Rice (Soak for exactly 20 minutes)", "base": 3.5, "unit": "cups" },
+                { "text": "Chicken (Costco drumsticks or a whole chopped bird)", "base": 2, "unit": "bags" },
+                { "text": "Small Shallot Onions", "base": 22, "unit": "units" },
+                { "text": "Green Chillies (Mild/Large Indian Store style)", "base": 6, "unit": "units" },
+                { "text": "Small Tomato", "base": 1, "unit": "unit" },
+                { "text": "Ginger Garlic Paste", "base": 2, "unit": "tbsp" },
+                { "text": "Fresh Mint", "base": 1, "unit": "handful" },
+                { "text": "Coriander Leaves", "base": 1, "unit": "handful" },
+                { "text": "Coriander Seeds Powder", "base": 1.5, "unit": "tbsp" },
+                { "text": "Kashmiri Chilli Powder", "base": 2, "unit": "tbsp" },
+                { "text": "Curd", "base": 0.5, "unit": "cup" },
+                { "text": "Ghee", "base": 5, "unit": "tbsp" },
+                { "text": "Oil", "base": 0.33, "unit": "cup" },
+                { "text": "Lemon Juice", "base": 0.5, "unit": "lemon" }
+            ]
+        }
+    ],
+    "steps": [
+        {
+            "title": "Step A: Spice Toasting & Grinding",
+            "badge": "Dry Heat Pipeline",
+            "timers": [{ "name": "Whole Spices", "secs": 60 }, { "name": "Poppy & Nutmeg", "secs": 30 }],
+            "instructions": [
+                "Dry roast the 10 cashews first on a medium flame inside a clean pan until pale golden.",
+                "Introduce cloves, cardamom, star anise, kalpaasi, sombu, pattai, and mace flower. Roast for 1 minute on medium heat.",
+                "Drop in the poppy seeds and nutmeg powder for the final 30 seconds. Cool completely and blitz into a fine powder."
+            ]
+        },
+        {
+            "title": "Step B: Sautéing and Reduction Build",
+            "badge": "Aromatic Oil Release",
+            "timers": [{ "name": "Onion Paste Sauté", "secs": 420 }, { "name": "Rice Soak Window", "secs": 1200 }],
+            "instructions": [
+                "Wet Grind 1: Process small shallot onions and green chillies into a smooth base paste.",
+                "Wet Grind 2: Separately process the small tomato along with the handfuls of mint and coriander into a clean paste.",
+                "In your cooking pot, melt 0.33 cup oil and 4-5 tbsp ghee. Add the onion-chilli paste along with your freshly ground masala powder.",
+                "Sauté for 6-7 minutes until raw smell completely dissipates. Stir in 1.5 tbsp salt now.",
+                "Drop in 2 tbsp ginger garlic paste. Sauté cleanly for 1-2 minutes.",
+                "Pour in the processed tomato-herb paste. Cook and reduce for 2-3 minutes.",
+                "Incorporate the coriander seeds powder and Kashmiri chilli powder. Stir continuously for 1 minute to cook out the spices."
+            ]
+        },
+        {
+            "title": "Step C: Protein Simmer & Water Balance",
+            "badge": "Preheat Oven to 375°F",
+            "instructions": [
+                "Add the chicken pieces and half cup of curd. Fry for 2-3 minutes to seal the surface of the meat.",
+                "Pour in 5.5 cups of boiling hot water followed by exactly 1 cup of the reserved water the rice was soaked in (accounting for the 0.5 cup liquid already released by meat). Total liquid matches the strict 2:1 ratio (7 cups total).",
+                "Cover the pot tightly. Bring to a boil until strong steam escapes and bubbling is clearly visible.",
+                "Taste test the liquid asset: Add approx 1 extra tbsp salt here. The liquid broth must taste slightly saltier than standard curries to balance the grain expansion."
+            ]
+        }
+    ],
+    "showLayeringTable": false,
+    "dumTitle": "Oven Integration & Dum",
+    "dumBadge": "45 Mins Baked Dum",
+    "dumTimer": 2700,
+    "dumInstruction": "Squeeze the juice of 0.5 lemon into the boiling pot. Strain the Seeraga Samba rice completely and drop it into the vessel. Stir continuously on medium-high heat so grains do not stick to the pot base. Once the rice has absorbed the surface water and hit a thick consistency, dress with a final touch of ghee if desired. Seal the container rim seamlessly with heavy aluminum foil, press the lid on flat, and transition to the preheated oven. Bake at 375°F for exactly 45 minutes. Mix gently from the bottom up before serving."
+}

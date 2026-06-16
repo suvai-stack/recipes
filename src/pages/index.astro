@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RecipeCard from '../components/RecipeCard.astro';
+import TagCloud from '../components/TagCloud.astro';
+
+const recipeModules = import.meta.glob('../data/recipes/*.json', { eager: true });
+const recipes = Object.entries(recipeModules).map(([path, mod]) => {
+    const id = path.split('/').pop().replace('.json', '');
+    return { id, ...mod.default };
+});
+
+// Collect unique tags
+const allTags = [...new Set(recipes.flatMap(r => r.tags || []))];
+---
+
+<BaseLayout title="Recipe Hub">
+    <header>
+        <img
+            src={`${import.meta.env.BASE_URL}/Suvai-Stack-Logo.png`}
+            alt="Suvai Stack Logo"
+            class="brand-logo"
+        />
+        <p>Precision engineered for the authentic South Indian kitchen.</p>
+    </header>
+
+    <div class="search-wrapper">
+        <input
+            type="text"
+            id="search-box"
+            class="search-input"
+            placeholder="Search recipes, grains, or keywords..."
+        />
+    </div>
+
+    <TagCloud tags={allTags} />
+
+    <main class="menu-list" id="menu-list">
+        {recipes.map(recipe => (
+            <RecipeCard
+                id={recipe.id}
+                title={recipe.title}
+                description={recipe.description}
+                tags={recipe.tags || []}
+            />
+        ))}
+    </main>
+
+    <div class="no-results hidden" id="empty-state">
+        No authentic matches found for your criteria.
+    </div>
+</BaseLayout>
+
+<script>
+    let selectedTag = 'All';
+    let searchQuery = '';
+
+    document.addEventListener('tagfilter', (e: CustomEvent) => {
+        selectedTag = e.detail.tag;
+        executeCombinedFilter();
+    });
+
+    const searchBox = document.getElementById('search-box') as HTMLInputElement;
+    searchBox?.addEventListener('input', (e) => {
+        searchQuery = (e.target as HTMLInputElement).value.toLowerCase().trim();
+        executeCombinedFilter();
+    });
+
+    function executeCombinedFilter() {
+        const cards = document.querySelectorAll('.menu-card');
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+            const itemTags = (card.getAttribute('data-tags') || '').split(',');
+            const title = card.querySelector('.recipe-title')?.textContent || '';
+            const desc = card.querySelector('.recipe-desc')?.textContent || '';
+
+            const matchesTag = selectedTag === 'All' || itemTags.includes(selectedTag);
+            const searchableText = `${title} ${desc} ${itemTags.join(' ')}`.toLowerCase();
+            const matchesSearch = searchableText.includes(searchQuery);
+
+            if (matchesTag && matchesSearch) {
+                card.classList.remove('hidden');
+                visibleCount++;
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+
+        const emptyState = document.getElementById('empty-state');
+        if (emptyState) {
+            if (visibleCount === 0) {
+                emptyState.classList.remove('hidden');
+            } else {
+                emptyState.classList.add('hidden');
+            }
+        }
+    }
+</script>
+
+<style>
+    header {
+        text-align: center;
+        padding: 12px 0 20px 0;
+        border-bottom: 2px dashed var(--primary-color);
+        margin-bottom: 20px;
+    }
+    .brand-logo {
+        display: block;
+        width: 100%;
+        max-width: 150px;
+        height: auto;
+        margin: 0 auto 6px auto;
+    }
+    header p {
+        font-style: italic;
+        color: #645347;
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    .search-wrapper {
+        margin-bottom: 12px;
+    }
+    .search-input {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 16px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        background: var(--card-bg);
+        color: var(--text-color);
+        outline: none;
+        transition: border-color 0.15s ease;
+        -webkit-appearance: none;
+    }
+    .search-input:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 2px var(--primary-light);
+    }
+
+    .menu-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .no-results {
+        text-align: center;
+        color: #645347;
+        font-size: 14px;
+        padding: 30px;
+        font-style: italic;
+    }
+</style>
