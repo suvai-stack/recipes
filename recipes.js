@@ -62,7 +62,7 @@ const recipeDatabase = {
             {
                 title: "Step B: Chicken Fry & Pan Semi-Gravy",
                 badge: "Dual Side Pacing",
-                timers: [ { name: "Side 1", secs: 300 }, { name: "Side 2", secs: 300 } ],
+                timers: [{ name: "Side 1", secs: 300 }, { name: "Side 2", secs: 300 }],
                 instructions: [
                     "Drop marinated pieces into medium heat oil. Fry 5 mins, flip, fry 5 mins more. Move to plate; retain 4 tbsp oil in pan.",
                     "Sauté 3 stems curry leaves and 4 chopped chillies for 20 seconds. Add 2 chopped onions and fry 2 mins on high. Add 1 tsp ginger garlic paste and fry 2 mins on high.",
@@ -133,7 +133,7 @@ const recipeDatabase = {
             {
                 title: "Step A: Spice Toasting & Grinding",
                 badge: "Dry Heat Pipeline",
-                timers: [ { name: "Whole Spices", secs: 60 }, { name: "Poppy & Nutmeg", secs: 30 } ],
+                timers: [{ name: "Whole Spices", secs: 60 }, { name: "Poppy & Nutmeg", secs: 30 }],
                 instructions: [
                     "Dry roast the 10 cashews first on a medium flame inside a clean pan until pale golden.",
                     "Introduce cloves, cardamom, star anise, kalpaasi, sombu, pattai, and mace flower. Roast for 1 minute on medium heat.",
@@ -143,7 +143,7 @@ const recipeDatabase = {
             {
                 title: "Step B: Sautéing and Reduction Build",
                 badge: "Aromatic Oil Release",
-                timers: [ { name: "Onion Paste Sauté", secs: 420 }, { name: "Rice Soak Window", secs: 1200 } ],
+                timers: [{ name: "Onion Paste Sauté", secs: 420 }, { name: "Rice Soak Window", secs: 1200 }],
                 instructions: [
                     "Wet Grind 1: Process small shallot onions and green chillies into a smooth base paste.",
                     "Wet Grind 2: Separately process the small tomato along with the handfuls of mint and coriander into a clean paste.",
@@ -241,7 +241,7 @@ const recipeDatabase = {
             {
                 title: "Step B: Air Fryer Tandoori Grilling",
                 badge: "400°F Blistered Texture",
-                timers: [ { name: "Side 1 Cook", secs: 420 }, { name: "Flip & Baste", secs: 420 } ],
+                timers: [{ name: "Side 1 Cook", secs: 420 }, { name: "Flip & Baste", secs: 420 }],
                 instructions: [
                     "Preheat your air fryer to 400°F (200°C). Lay smoked thigh chunks out flat in a single tier inside the basket.",
                     "Air fry at 400°F for 12-15 minutes total. Flip segments midway through, basting heavily with the 2 tbsp melted butter/oil to retain moisture and create charred edges."
@@ -264,5 +264,110 @@ const recipeDatabase = {
         dumBadge: "5 Mins Low Flame Emulsification",
         dumTimer: 300,
         dumInstruction: "Melt 3-4 tbsp butter on low flame in a clean pan. Sauté 0.5 tbsp chilli powder and ginger juliennes for 10 seconds. Pour in sifted makhani sauce and bubble safely. Add tandoori thigh pieces; simmer 5 minutes on low. Add honey, kasoori methi, and salt adjustment. Drop heat to lowest tier; slowly work in 3-4 tbsp of 40% fat heavy whipping cream until completely integrated. Garnish with ginger ribbons and cream drizzle."
+    },
+    mutton_keema_stir_fry_noodles: {
+        title: "Mutton Keema Stir Fry Noodles",
+        description: "South Indian style high-heat wok noodles featuring a slow-cooked dry keema curry base, layered with vibrant vegetables and a savory umami-forward sauce. Quick assembly after keema prep.",
+        tags: ["Mutton", "Ground Meat", "Noodles", "Wok", "Stir Fry", "South Indian", "Keema"],
+        note: "CRITICAL: Keema must be cooked separately (15 mins) first as a dry curry with no added water. High heat wok cooking requires constant tossing. All vegetables and noodles must be prepped before final wok assembly.",
+        sections: [
+            {
+                name: "Mutton Keema Curry (Dry Cook)",
+                items: [
+                    { text: "Ground Mutton", base: 1, unit: "lb" },
+                    { text: "Medium Onion (Minced)", base: 1, unit: "unit" },
+                    { text: "Medium Tomato (Finely Chopped)", base: 1, unit: "unit" },
+                    { text: "Ginger Garlic Paste", base: 2, unit: "tbsp" },
+                    { text: "Green Chillies (Slit)", base: 3, unit: "units" },
+                    { text: "Kashmiri Chilli Powder", base: 0.75, unit: "tbsp" },
+                    { text: "Coriander Powder", base: 1, unit: "tbsp" },
+                    { text: "Cumin Powder", base: 1, unit: "tbsp" },
+                    { text: "Garam Masala Powder", base: 1, unit: "tbsp" },
+                    { text: "Lemon Juice", base: 1, unit: "whole" },
+                    { text: "Cooking Oil or Ghee", base: 2, unit: "tbsp" },
+                    { text: "Salt", base: 1, unit: "to taste" }
+                ]
+            },
+            {
+                name: "Umami Sauce Assembly",
+                items: [
+                    { text: "Oyster Sauce", base: 1, unit: "tbsp" },
+                    { text: "Fish Sauce", base: 1, unit: "tsp" },
+                    { text: "Soy Sauce", base: 1, unit: "tbsp" },
+                    { text: "Tomato Ketchup", base: 1, unit: "tbsp" },
+                    { text: "Sugar", base: 1, unit: "tsp" },
+                    { text: "Rice Vinegar", base: 1, unit: "tsp" },
+                    { text: "Sriracha Sauce (Optional - Extra Heat)", base: 1, unit: "tsp" },
+                    { text: "Green Chilli Sauce (Optional - Extra Heat)", base: 1, unit: "tsp" }
+                ]
+            },
+            {
+                name: "Vegetables & Wok Mix",
+                items: [
+                    { text: "Noodles (Pre-cooked & Drained)", base: 3, unit: "cups" },
+                    { text: "White Onion (Cut in Wide Strips)", base: 1, unit: "medium" },
+                    { text: "Carrot (Julienned)", base: 1, unit: "unit" },
+                    { text: "Bell Pepper - Mixed or Green (Julienned)", base: 0.5, unit: "unit" },
+                    { text: "Cabbage (Cut in Strips)", base: 1, unit: "cup" },
+                    { text: "Garlic (Minced)", base: 2, unit: "cloves" },
+                    { text: "Eggs", base: 3, unit: "units" },
+                    { text: "Black Pepper Powder", base: 1, unit: "tsp" },
+                    { text: "Salt", base: 1, unit: "to taste (adjust for sauce sodium)" }
+                ]
+            },
+            {
+                name: "Noodle Indian Spice Seasoning",
+                items: [
+                    { text: "Kashmiri Chilli Powder", base: 0.5, unit: "tbsp" },
+                    { text: "Garam Masala Powder (Light Pinch)", base: 1, unit: "pinch" }
+                ]
+            }
+        ],
+        steps: [
+            {
+                title: "Step A: Cook Mutton Keema Curry",
+                badge: "15 Mins Dry Curry Build",
+                timer: 900,
+                instructions: [
+                    "Heat 2 tbsp oil or ghee in a pan on medium-high heat. Add minced onions and sauté for 2-3 minutes until translucent.",
+                    "Stir in ginger garlic paste and green chillies. Cook for 1 minute until fragrant.",
+                    "Add ground mutton and break it apart with a spoon. Sauté for 3-4 minutes, stirring continuously to break lumps and cook the meat.",
+                    "Add chopped tomatoes and cook for 2 minutes, allowing tomatoes to break down slightly.",
+                    "Stir in coriander powder, cumin powder, garam masala, and Kashmiri chilli powder. Mix well for 30 seconds to bloom spices.",
+                    "Add salt and lemon juice. Reduce heat to medium and cook for 5-7 minutes, stirring occasionally, until the keema turns dry with no liquid pooling at the bottom and meat is fully cooked through.",
+                    "The keema should have a rich, concentrated curry texture. Set aside and keep warm."
+                ]
+            },
+            {
+                title: "Step B: Mix Stir Fry Sauce",
+                badge: "Umami Sauce Assembly",
+                timer: 120,
+                instructions: [
+                    "In a small bowl, whisk together oyster sauce, fish sauce, soy sauce, tomato ketchup, sugar, and rice vinegar.",
+                    "If using extra heat, add sriracha and green chilli sauce to the base sauce.",
+                    "Set sauce bowl aside near your wok station."
+                ]
+            },
+            {
+                title: "Step C: High Heat Wok Assembly",
+                badge: "Full Flame - Constant Motion",
+                timers: [{ name: "Vegetable Toss", secs: 240 }, { name: "Noodle Assembly", secs: 180 }],
+                instructions: [
+                    "Heat a large wok or flat skillet on high heat until smoking hot. Do not add oil yet.",
+                    "Once the wok is smoking, add generous oil (3-4 tbsp) and swirl to coat the surface evenly. Oil should shimmer immediately.",
+                    "Crack eggs into the hot oiled wok, scramble lightly until just set, then push to the sides.",
+                    "Add all julienned/sliced vegetables (onions, carrots, peppers, cabbage, garlic). Toss constantly for 3-4 mins on high heat until vegetables are tender-crisp.",
+                    "Pour in cooked noodles. Sprinkle 0.5 tbsp chilli powder and a pinch of garam masala over the noodles. Toss vigorously for 1-2 mins until noodles are evenly coated with the Indian spices.",
+                    "Add the prepared umami sauce. Toss for 1 min until noodles are evenly coated.",
+                    "Add the pre-cooked keema curry to the wok. Toss everything together for 1-2 mins on high heat until fully combined and heated through.",
+                    "Taste and adjust salt and black pepper. Serve immediately while piping hot."
+                ]
+            }
+        ],
+        showLayeringTable: false,
+        dumTitle: "Serve Hot & Fresh",
+        dumBadge: "Immediate Plate",
+        dumTimer: 0,
+        dumInstruction: "Transfer noodles immediately to serving plates or bowls. Garnish with fresh coriander leaves if available. Serve with lemon wedges and extra sriracha on the side. Pairs well with quick pickled cucumber raita or plain yogurt to cool the spice."
     }
 };
