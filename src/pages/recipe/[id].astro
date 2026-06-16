@@ -49,7 +49,7 @@ function formatTimerLabel(secs: number): string {
 
     <h2 id="misen">1. Prep &amp; Mise En Place</h2>
 
-    {recipe.sections.map((sec: any) => (
+    {recipe.sections.map((sec) => (
         <div class="card open">
             <div class="card-header">
                 <span>
@@ -59,7 +59,7 @@ function formatTimerLabel(secs: number): string {
                 <span class="card-chevron">▼</span>
             </div>
             <div class="card-body">
-                {sec.items.map((item: any) => (
+                {sec.items.map((item) => (
                     <label class="interactive-item">
                         <input type="checkbox" />
                         <span class="item-text">{item.text}: <span class="qty-num" data-base={item.base}>{item.base}</span> {item.unit}.</span>
@@ -71,7 +71,7 @@ function formatTimerLabel(secs: number): string {
 
     <h2 id="thermal">2. Thermal Processing Steps</h2>
 
-    {recipe.steps.map((st: any) => (
+    {recipe.steps.map((st) => (
         <div class="card open">
             <div class="card-header">
                 <span>
@@ -89,7 +89,7 @@ function formatTimerLabel(secs: number): string {
                             <span class="timer-display">{formatSecondsToClock(st.timer)}</span>
                         </div>
                     )}
-                    {st.timers && st.timers.map((t: any) => (
+                    {st.timers && st.timers.map((t) => (
                         <div class="timer-module" data-time={t.secs}>
                             <button class="timer-btn">{t.name} ({formatTimerLabel(t.secs)})</button>
                             <span class="timer-display">{formatSecondsToClock(t.secs)}</span>
@@ -115,7 +115,7 @@ function formatTimerLabel(secs: number): string {
             <div style="padding:14px 14px 0 14px;">
                 <div style="font-weight:700; margin-bottom:6px; font-size:13px; color:var(--primary-color);">Structural Layer Blueprint</div>
                 <table class="layer-table">
-                    {recipe.layeringTable.map((row: any) => {
+                    {recipe.layeringTable.map((row) => {
                         const rowClass = row.type === 'top' ? 'l-top' : row.type === 'rice' ? 'l-rice' : 'l-gravy';
                         return (
                             <tr class={rowClass}>
@@ -281,6 +281,7 @@ function formatTimerLabel(secs: number): string {
     });
 </script>
 
+<style>
     header {
         text-align: center;
         padding: 10px 0 20px 0;
