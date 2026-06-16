@@ -268,7 +268,7 @@ const recipeDatabase = {
     mutton_keema_stir_fry_noodles: {
         title: "Mutton Keema Stir Fry Noodles",
         description: "South Indian style high-heat wok noodles featuring a slow-cooked dry keema curry base, layered with vibrant vegetables and a savory umami-forward sauce. Quick assembly after keema prep.",
-        tags: ["Mutton", "Ground Meat", "Noodles", "Wok", "Stir Fry", "South Indian", "Keema"],
+        tags: ["Mutton", "Ground Meat", "Noodles", "Wok", "Stir Fry", "South Indian", "Keema", "Nepalese"],
         note: "CRITICAL: Keema must be cooked separately (15 mins) first as a dry curry with no added water. High heat wok cooking requires constant tossing. All vegetables and noodles must be prepped before final wok assembly.",
         sections: [
             {
