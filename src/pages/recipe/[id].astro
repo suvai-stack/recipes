@@ -24,7 +24,9 @@ function formatTimerLabel(secs: number): string {
 
 <BaseLayout title={recipe.title}>
     <header>
-        <a href={`${import.meta.env.BASE_URL}/`} class="back-link">← Home</a>
+        <div class="back-link-wrapper">
+            <a href={`${import.meta.env.BASE_URL}/`} class="back-link">← Home</a>
+        </div>
         <h1>{recipe.title}</h1>
         <div class="scale-container">
             <span>Batch Scale:</span>
@@ -282,19 +284,17 @@ function formatTimerLabel(secs: number): string {
     });
 </script>
 
-<style>
     header {
         text-align: center;
-        padding: 20px 0;
+        padding: 10px 0 20px 0;
         border-bottom: 2px dashed var(--primary-color);
         margin-bottom: 16px;
-        position: relative;
+    }
+    .back-link-wrapper {
+        text-align: left;
+        margin-bottom: 12px;
     }
     .back-link {
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
         display: inline-flex;
         align-items: center;
         gap: 4px;
