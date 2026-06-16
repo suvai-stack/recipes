@@ -8,9 +8,10 @@ interface Props {
 }
 
 const { lang, id, title, description, tags } = Astro.props;
+const href = lang === 'en' ? `${import.meta.env.BASE_URL}/recipe/${id}` : `${import.meta.env.BASE_URL}/${lang}/recipe/${id}`;
 ---
 
-<a href={`${import.meta.env.BASE_URL}/${lang}/recipe/${id}`} class="menu-card" data-id={id} data-tags={tags.join(',')}>
+<a href={href} class="menu-card" data-id={id} data-tags={tags.join(',')}>
     <div class="recipe-title">{title}</div>
     <div class="recipe-desc">{description || 'Authentic traditional workflow.'}</div>
     <div class="card-tags">

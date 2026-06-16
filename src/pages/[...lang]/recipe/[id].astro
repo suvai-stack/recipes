@@ -6,21 +6,21 @@ export function getStaticPaths() {
     const enModules = import.meta.glob('../../../data/recipes/en/*.json', { eager: true });
     const taModules = import.meta.glob('../../../data/recipes/ta/*.json', { eager: true });
 
-    const mapPaths = (modules: any, lang: string) => {
+    const mapPaths = (modules: any, langParam: string | undefined, currentLang: string) => {
         return Object.entries(modules).map(([path, mod]: any) => ({
-            params: { lang, id: path.split('/').pop().replace('.json', '') },
-            props: { recipe: mod.default },
+            params: { lang: langParam, id: path.split('/').pop().replace('.json', '') },
+            props: { recipe: mod.default, currentLang },
         }));
     };
 
     return [
-        ...mapPaths(enModules, 'en'),
-        ...mapPaths(taModules, 'ta')
+        ...mapPaths(enModules, undefined, 'en'),
+        ...mapPaths(taModules, 'ta', 'ta')
     ];
 }
 
-const { lang } = Astro.params;
-const { recipe } = Astro.props as { recipe: any };
+const { recipe, currentLang } = Astro.props as { recipe: any, currentLang: string };
+const lang = currentLang;
 const t = useTranslations(lang as any);
 
 function formatSecondsToClock(totalSecs: number): string {
@@ -32,12 +32,14 @@ function formatSecondsToClock(totalSecs: number): string {
 function formatTimerLabel(secs: number): string {
     return secs >= 60 ? secs / 60 + 'm' : secs + 's';
 }
+
+const backLink = lang === 'en' ? `${import.meta.env.BASE_URL}/` : `${import.meta.env.BASE_URL}/${lang}/`;
 ---
 
 <BaseLayout title={recipe.title}>
     <header>
         <div class="back-link-wrapper">
-            <a href={`${import.meta.env.BASE_URL}/${lang}/`} class="back-link">{t('nav.home')}</a>
+            <a href={backLink} class="back-link">{t('nav.home')}</a>
         </div>
         <h1>{recipe.title}</h1>
         <div class="scale-container">

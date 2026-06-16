@@ -15,13 +15,13 @@ export async function getStaticPaths() {
     };
 
     return [
-        { params: { lang: 'en' }, props: { recipes: mapModules(enModules) } },
-        { params: { lang: 'ta' }, props: { recipes: mapModules(taModules) } }
+        { params: { lang: undefined }, props: { recipes: mapModules(enModules), currentLang: 'en' } },
+        { params: { lang: 'ta' }, props: { recipes: mapModules(taModules), currentLang: 'ta' } }
     ];
 }
 
-const { lang } = Astro.params;
-const { recipes } = Astro.props as { recipes: any[] };
+const { recipes, currentLang } = Astro.props as { recipes: any[], currentLang: string };
+const lang = currentLang;
 
 // Collect unique tags
 const allTags = [...new Set(recipes.flatMap(r => r.tags || []))];
