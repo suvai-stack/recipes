@@ -51,6 +51,7 @@ const allTags = [...new Set(recipes.flatMap(r => r.tags || []))];
     <main class="menu-list" id="menu-list">
         {recipes.map(recipe => (
             <RecipeCard
+                lang={lang}
                 id={recipe.id}
                 title={recipe.title}
                 description={recipe.description}
