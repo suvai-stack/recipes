@@ -1,15 +1,27 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { useTranslations } from '../../../utils/i18n';
 
 export function getStaticPaths() {
-    const modules = import.meta.glob('../../data/recipes/*.json', { eager: true });
-    return Object.entries(modules).map(([path, mod]) => ({
-        params: { id: path.split('/').pop().replace('.json', '') },
-        props: { recipe: mod.default },
-    }));
+    const enModules = import.meta.glob('../../../data/recipes/en/*.json', { eager: true });
+    const taModules = import.meta.glob('../../../data/recipes/ta/*.json', { eager: true });
+
+    const mapPaths = (modules: any, lang: string) => {
+        return Object.entries(modules).map(([path, mod]: any) => ({
+            params: { lang, id: path.split('/').pop().replace('.json', '') },
+            props: { recipe: mod.default },
+        }));
+    };
+
+    return [
+        ...mapPaths(enModules, 'en'),
+        ...mapPaths(taModules, 'ta')
+    ];
 }
 
-const { recipe } = Astro.props;
+const { lang } = Astro.params;
+const { recipe } = Astro.props as { recipe: any };
+const t = useTranslations(lang as any);
 
 function formatSecondsToClock(totalSecs: number): string {
     const m = Math.floor(totalSecs / 60).toString().padStart(2, '0');
@@ -25,11 +37,11 @@ function formatTimerLabel(secs: number): string {
 <BaseLayout title={recipe.title}>
     <header>
         <div class="back-link-wrapper">
-            <a href={`${import.meta.env.BASE_URL}/`} class="back-link">← Home</a>
+            <a href={`${import.meta.env.BASE_URL}/${lang}/`} class="back-link">{t('nav.home')}</a>
         </div>
         <h1>{recipe.title}</h1>
         <div class="scale-container">
-            <span>Batch Scale:</span>
+            <span>{t('nav.scale')}</span>
             <button class="scale-btn" id="scale-down">-</button>
             <span id="scale-factor">1.0x</span>
             <button class="scale-btn" id="scale-up">+</button>
@@ -37,9 +49,9 @@ function formatTimerLabel(secs: number): string {
     </header>
 
     <div class="sticky-nav">
-        <a href="#misen">1. Prep Checklist</a>
-        <a href="#thermal">2. Thermal Steps</a>
-        <a href="#layering">3. Assembly</a>
+        <a href="#misen">{t('section.prep')}</a>
+        <a href="#thermal">{t('section.thermal')}</a>
+        <a href="#layering">{t('section.assembly')}</a>
     </div>
 
     <div class="alert-box">
@@ -47,7 +59,7 @@ function formatTimerLabel(secs: number): string {
         <div>{recipe.note}</div>
     </div>
 
-    <h2 id="misen">1. Prep &amp; Mise En Place</h2>
+    <h2 id="misen">{t('section.prep')}</h2>
 
     {recipe.sections.map((sec) => (
         <div class="card open">
@@ -69,7 +81,7 @@ function formatTimerLabel(secs: number): string {
         </div>
     ))}
 
-    <h2 id="thermal">2. Thermal Processing Steps</h2>
+    <h2 id="thermal">{t('section.thermal')}</h2>
 
     {recipe.steps.map((st) => (
         <div class="card open">
@@ -108,17 +120,19 @@ function formatTimerLabel(secs: number): string {
         </div>
     ))}
 
-    <h2 id="layering">3. Final Assembly</h2>
+    <h2 id="layering">{t('section.assembly')}</h2>
 
     <div class="card assembly-card">
         {recipe.layeringTable && (
             <div style="padding:14px 14px 0 14px;">
-                <div style="font-weight:700; margin-bottom:6px; font-size:13px; color:var(--primary-color);">Structural Layer Blueprint</div>
+                <div style="font-weight:700; margin-bottom:6px; font-size:13px; color:var(--primary-color);">{t('layer.blueprint')}</div>
                 <table class="layer-table">
                     {recipe.layeringTable.map((row) => {
                         const rowClass = row.type === 'top' ? 'l-top' : row.type === 'rice' ? 'l-rice' : 'l-gravy';
+                        const typeLabel = row.type === 'top' ? t('layer.top') : row.type === 'rice' ? t('layer.rice') : t('layer.gravy');
                         return (
                             <tr class={rowClass}>
+                                <td class="l-badge">{typeLabel}</td>
                                 <td set:html={
                                     row.scalableValues
                                         ? row.text.replace(/(\d+(?:\.\d+)?)/g, (match: string, num: string, offset: number) => {
