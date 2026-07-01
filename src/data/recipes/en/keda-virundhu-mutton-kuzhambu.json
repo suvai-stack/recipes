@@ -1,0 +1,95 @@
+{
+    "title": "Keda Virundhu: Mutton Kuzhambu (Village Mutton Gravy)",
+    "description": "A rustic, robust village-style mutton gravy prepared with a fresh wet-ground masala paste of coconut, ginger, garlic, and toasted spices, finished with sesame oil in an Instant Pot or pressure cooker.",
+    "tags": ["Mutton", "Kuzhambu", "Village Style", "Wet Grind", "Instant Pot", "Pressure Cooker", "Tamil Nadu"],
+    "note": "COCONUT NOTE: If using store-bought frozen grated coconut, avoid dry roasting it to prevent an unwanted oily smell. Add it directly to the blender at the end.",
+    "sections": [
+        {
+            "name": "Fresh Ground Masala Paste",
+            "items": [
+                { "text": "Grated Coconut (Do not roast if frozen)", "base": 0.5, "unit": "cup" },
+                { "text": "Fennel Seeds (Sombu)", "base": 1, "unit": "tsp" },
+                { "text": "Cumin Powder", "base": 1.5, "unit": "tsp" },
+                { "text": "Coriander Powder", "base": 2.5, "unit": "tbsp" },
+                { "text": "Kari Masala / Sakthi Mutton Masala (Adjust to taste)", "base": 2, "unit": "tbsp" },
+                { "text": "Garlic (Big pods, adjust based on tanginess)", "base": 7, "unit": "pods" },
+                { "text": "Ginger", "base": 2, "unit": "inches" },
+                { "text": "Dried Red Chillies", "base": 3, "unit": "units" },
+                { "text": "Kashmiri Red Chillies", "base": 3, "unit": "units" },
+                { "text": "Red Onions (medium-sized, or 30 shallots/small onions)", "base": 2, "unit": "units" }
+            ]
+        },
+        {
+            "name": "Tempering & Sauté Base",
+            "items": [
+                { "text": "Shallots (Or 1/4th of a red onion, thinly sliced)", "base": 10, "unit": "units" },
+                { "text": "Tomatoes (Medium, thinly sliced)", "base": 2, "unit": "units" },
+                { "text": "Curry Leaves", "base": 1, "unit": "bunch" },
+                { "text": "Sesame oil (Gingelly oil)", "base": 3, "unit": "tbsp" },
+                { "text": "Rock Salt", "base": 1, "unit": "to taste" }
+            ]
+        },
+        {
+            "name": "Main & Finishing",
+            "items": [
+                { "text": "Mutton (Washed and prepped pieces)", "base": 500, "unit": "g" },
+                { "text": "Water (Adjust for preferred consistency)", "base": 3, "unit": "cups" },
+                { "text": "Coriander Leaves (Chopped for garnish)", "base": 1, "unit": "handful" }
+            ]
+        }
+    ],
+    "steps": [
+        {
+            "title": "Step A: Masala Preparation",
+            "badge": "Spice Toasting",
+            "timer": 60,
+            "instructions": [
+                "Place a pan over medium flame.",
+                "Dry roast the fennel seeds, cumin powder, coriander powder, kari masala, garlic pods, ginger, dried red chillies, and Kashmiri red chillies for about 1 minute until aromatic. Do not roast the coconut if it is frozen.",
+                "Transfer the roasted spices to a blender. Add the 0.5 cup of grated coconut and a splash of water.",
+                "Grind into a completely fine, smooth paste and set aside."
+            ]
+        },
+        {
+            "title": "Step B: Sauté Base Build",
+            "badge": "Aromatic Sauté",
+            "instructions": [
+                "Set the Instant Pot to Sauté Mode (or place a traditional pressure cooker over medium-high heat).",
+                "Pour in the sesame oil. Once hot, add the sliced shallots (or red onion) along with the rock salt.",
+                "Sauté continuously until the onions are caramelized.",
+                "Add the thinly sliced tomatoes and the bunch of curry leaves. Sauté until the tomatoes turn completely mushy."
+            ]
+        },
+        {
+            "title": "Step C: Paste Searing & Mutton Integration",
+            "badge": "Masala Sauté",
+            "timers": [
+                { "name": "Fry Masala Alone", "secs": 300 },
+                { "name": "Sauté with Mutton", "secs": 300 }
+            ],
+            "instructions": [
+                "Pour the ground masala paste directly into the mushy onion-tomato base.",
+                "Fry the paste for a total of 10 minutes to cook out raw aromatics.",
+                "At the 5-minute mark of frying the paste, drop in the washed mutton pieces. Stir well to coat the meat with the searing masala for the remaining 5 minutes.",
+                "Pour in 3 cups of water (or adjust to match your target gravy density)."
+            ]
+        },
+        {
+            "title": "Step D: Pressure Cook Phase",
+            "badge": "Pressure Cook",
+            "timers": [
+                { "name": "IP High (Quick Release)", "secs": 1200 },
+                { "name": "IP High (Natural Release)", "secs": 900 }
+            ],
+            "instructions": [
+                "Option A (Instant Pot Method): Cancel Sauté Mode and lock the lid with the valve set to Sealing. Select Pressure Cook Mode (High Pressure). Set for 20 minutes for a Quick Pressure Release, or 15 minutes for a Natural Pressure Release.",
+                "Option B (Traditional Pressure Cooker Method): Lock the cooker lid securely. Cook for the specific number of whistles you typically use for your local mutton selection. Allow the cooker to complete a Natural Pressure Release."
+            ]
+        }
+    ],
+    "showLayeringTable": false,
+    "dumTitle": "Step E: Finishing & Garnish",
+    "dumBadge": "Oil Integration",
+    "dumTimer": 0,
+    "dumInstruction": "Carefully open the lid once the pressure is fully discharged. Stir the gravy gently to incorporate the surface oils. Scatter the fresh coriander leaves over the hot gravy immediately before serving."
+}
