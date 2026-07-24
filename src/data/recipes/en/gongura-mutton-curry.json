@@ -1,0 +1,98 @@
+{
+    "title": "Gongura Mutton Curry (Andhra Style Sorrel Mutton Curry)",
+    "description": "A traditional Andhra-style tangy mutton curry prepared with sorrel leaves (gongura), pressure-cooked tender mutton stock, and robust South Indian spices.",
+    "tags": ["Mutton", "Gongura", "Sorrel Leaves", "Andhra Style", "Instant Pot", "Pressure Cooker", "Tangy"],
+    "note": "CONSISTENCY & HEAT NOTE: Do not cook the mutton on high heat during the final simmer; high heat causes mutton fibers to tighten and become hard. Always maintain a slow-medium flame. If adding extra hot water for more gravy, scale up kari masala accordingly.",
+    "sections": [
+        {
+            "name": "Mutton Pre-Cook & Stock Base (Instant Pot)",
+            "items": [
+                { "text": "Mutton (Cleaned pieces)", "base": 1.5, "unit": "kg" },
+                { "text": "Water (For stock broth)", "base": 1.5, "unit": "cups" },
+                { "text": "Ginger Garlic Paste", "base": 1, "unit": "tbsp" },
+                { "text": "Red Chilli Powder", "base": 1, "unit": "tbsp (adjust to taste)" },
+                { "text": "Salt", "base": 1, "unit": "tsp (for stock broth)" }
+            ]
+        },
+        {
+            "name": "Sorrel Leaves (Gongura) Prep",
+            "items": [
+                { "text": "Gongura / Sorrel Leaves", "base": 1, "unit": "large bunch" },
+                { "text": "Water (For boiling sorrel leaves)", "base": 2, "unit": "cups" }
+            ]
+        },
+        {
+            "name": "Tempering & Curry Base",
+            "items": [
+                { "text": "Cooking Oil", "base": 2, "unit": "tbsp" },
+                { "text": "Cinnamon Stick (Pattai)", "base": 1, "unit": "inch" },
+                { "text": "Fennel Seeds (Sombu)", "base": 1, "unit": "tsp" },
+                { "text": "Bay Leaf", "base": 1, "unit": "small leaf" },
+                { "text": "Star Anise", "base": 1, "unit": "unit" },
+                { "text": "Cardamom", "base": 1, "unit": "pod" },
+                { "text": "Red Onion (Large, finely chopped)", "base": 1, "unit": "unit" },
+                { "text": "Tomatoes (Large, adjust based on sorrel sourness)", "base": 1, "unit": "unit" },
+                { "text": "Ginger Garlic Paste", "base": 2, "unit": "tbsp" },
+                { "text": "Turmeric Powder", "base": 1.5, "unit": "tsp" },
+                { "text": "Coriander Powder", "base": 3, "unit": "tbsp" },
+                { "text": "Mutton / Kari Masala", "base": 3, "unit": "tbsp" },
+                { "text": "Curry Leaves", "base": 1, "unit": "bunch" }
+            ]
+        }
+    ],
+    "steps": [
+        {
+            "title": "Step A: Instant Pot Mutton Stock Pre-Cook",
+            "badge": "75% Mutton Cook",
+            "timers": [
+                { "name": "IP High Pressure", "secs": 540 }
+            ],
+            "instructions": [
+                "Add cleaned mutton (1.5 kg), 1.5 cups water, 1 tbsp ginger-garlic paste, red chilli powder, and salt into the Instant Pot.",
+                "Lock lid, set valve to Sealing, turn off Keep Warm mode, and pressure cook on High Pressure for 9 minutes.",
+                "Quick release steam immediately once the timer finishes. The meat should be ~75% cooked with a rich stock broth. Set aside."
+            ]
+        },
+        {
+            "title": "Step B: Gongura (Sorrel Leaves) Preparation",
+            "badge": "Sourness Control",
+            "timers": [
+                { "name": "Boil Sorrel Leaves", "secs": 300 }
+            ],
+            "instructions": [
+                "Clean and pluck 1 large bunch of Gongura (sorrel leaves).",
+                "Boil the leaves in water until soft and drain the water to reduce excessive sourness. (If the leaves are not very sour, simply sauté them in a dry pan until soft and mushy without boiling).",
+                "Lightly mash the cooked sorrel leaves and set aside."
+            ]
+        },
+        {
+            "title": "Step C: Tempering & Aromatic Base",
+            "badge": "Aromatic Sauté",
+            "instructions": [
+                "Heat 2 tbsp oil in a deep kadai or heavy-bottomed pot over medium heat.",
+                "Add 1 inch cinnamon stick, 1 tsp fennel seeds (sombu), 1 small bay leaf, 1 star anise, and 1 cardamom pod. Sauté until whole spices pop and release aroma.",
+                "Add 1 large chopped red onion. Sauté until translucent and golden brown.",
+                "Add 1 large chopped tomato (or 2 small tomatoes, adjusting based on sorrel leaf sourness).",
+                "Stir in 1.5 tsp turmeric powder and 2 tbsp ginger-garlic paste. Sauté for 1 minute until raw aromatics dissipate."
+            ]
+        },
+        {
+            "title": "Step D: Mutton Stock & Spice Integration",
+            "badge": "Slow-Medium Simmer",
+            "timers": [
+                { "name": "Slow-Medium Simmer", "secs": 1050 }
+            ],
+            "instructions": [
+                "Add the ~75% pre-cooked mutton along with all of its reserved stock broth into the kadai.",
+                "Sprinkle in 3 tbsp coriander powder and 3 tbsp mutton / kari masala.",
+                "Add the pre-mashed boiled sorrel leaves (Gongura) and stir well to combine.",
+                "Reduce heat to slow-medium flame. Simmer gently for 15 to 20 minutes until the mutton transforms from 75% cooked to fully tender and soft. DO NOT cook on high heat, as high heat will make the mutton tough."
+            ]
+        }
+    ],
+    "showLayeringTable": false,
+    "dumTitle": "Step E: Garnish & Gravy Adjustments",
+    "dumBadge": "Fresh Herb Finish",
+    "dumTimer": 0,
+    "dumInstruction": "Scatter fresh curry leaves over the gravy and turn off the heat. Consistency Tip: If you prefer more curry or need to adjust consistency while cooking, add hot water and adjust kari masala proportionately to maintain full flavor balance. Serve hot with rice or biryani."
+}
