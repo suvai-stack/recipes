@@ -1,0 +1,85 @@
+{
+    "title": "Instant Pot Lamb Nihari",
+    "description": "A slow-braised North Indian stew of lamb shanks cooked in Shan Nihari masala until falling off the bone, finished with a wheat-flour slurry that thickens the gravy until the oil rises to the surface.",
+    "tags": ["Lamb", "North Indian", "Instant Pot"],
+    "note": "BURN & SLURRY NOTE: After adding the liquid, scrape the pot bottom thoroughly to deglaze — leftover fond will trigger an Instant Pot burn warning. Whisk the atta slurry until completely lump-free, then pour it in a thin stream while stirring. Do not skip the 15-minute natural release; it finishes collagen breakdown in the shanks. Note: Commercial Nihari masalas usually contain salt, so adjust additional salt with care.",
+    "sections": [
+        {
+            "name": "Meat & Curry Base",
+            "items": [
+                { "text": "Lamb Shanks", "base": 2, "unit": "units" },
+                { "text": "Ghee or Cooking Oil", "base": 0.5, "unit": "cup" },
+                { "text": "Red Onion (Large, thinly sliced)", "base": 1, "unit": "unit" },
+                { "text": "Ginger Paste", "base": 1, "unit": "tbsp" },
+                { "text": "Garlic Paste", "base": 1, "unit": "tbsp" },
+                { "text": "Shan Nihari Masala (Personally tested brand — Note: contains salt & spices)", "base": 3, "unit": "tbsp" },
+                { "text": "Water or Broth (Quick option: chicken powder or Better Than Bouillon mixed with water)", "base": 4, "unit": "cups" },
+                { "text": "Salt (Ready-made masalas contain salt, so adjust accordingly)", "unit": "to taste" }
+            ]
+        },
+        {
+            "name": "Atta Slurry (Gravy Thickener)",
+            "items": [
+                { "text": "Whole Wheat Flour (Atta)", "base": 0.25, "unit": "cup" },
+                { "text": "Water (For slurry)", "base": 0.5, "unit": "cup" }
+            ]
+        },
+        {
+            "name": "Garnish",
+            "items": [
+                { "text": "Ginger Juliennes", "base": 1, "unit": "tbsp" },
+                { "text": "Fresh Cilantro (Chopped)", "base": 1, "unit": "handful" },
+                { "text": "Green Chillies (Chopped)", "base": 2, "unit": "units" },
+                { "text": "Lemon Wedges", "base": 1, "unit": "unit" }
+            ]
+        }
+    ],
+    "steps": [
+        {
+            "title": "Step A: Sauté Onions",
+            "badge": "Golden Brown",
+            "instructions": [
+                "Turn the Instant Pot to Sauté mode. Heat 0.5 cup ghee (or cooking oil).",
+                "Add the thinly sliced onion and fry until it turns evenly golden brown."
+            ]
+        },
+        {
+            "title": "Step B: Sear the Lamb",
+            "badge": "5 Min Brown",
+            "timers": [
+                { "name": "Sear Shanks", "secs": 300 }
+            ],
+            "instructions": [
+                "Add the lamb shanks, 1 tbsp ginger paste, and 1 tbsp garlic paste.",
+                "Cook for about 5 minutes, turning the shanks so they brown on all sides."
+            ]
+        },
+        {
+            "title": "Step C: Spices, Liquid & Deglaze",
+            "badge": "Burn Prevention",
+            "instructions": [
+                "Stir in 3 tbsp Shan Nihari masala and salt to taste (adjust carefully since ready-made masalas already contain salt).",
+                "Pour in 4 cups water or broth (plain water, bone broth, or a quick mix of chicken powder / Better Than Bouillon with water).",
+                "Scrape the bottom of the pot with a wooden spoon to fully deglaze. Any stuck fond will trigger a burn error."
+            ]
+        },
+        {
+            "title": "Step D: Pressure Cook",
+            "badge": "45 Min High + 15 Min NPR",
+            "timers": [
+                { "name": "IP High Pressure", "secs": 2700 },
+                { "name": "Natural Release", "secs": 900 }
+            ],
+            "instructions": [
+                "Cancel Sauté mode. Secure the lid and set the valve to Sealing.",
+                "Cook on High Pressure for 45 minutes.",
+                "Allow a natural pressure release for 15 minutes, then manually release any remaining pressure. Open the lid carefully."
+            ]
+        }
+    ],
+    "showLayeringTable": false,
+    "dumTitle": "Step E: Thicken Gravy & Garnish",
+    "dumBadge": "10 Min Sauté Simmer",
+    "dumTimer": 600,
+    "dumInstruction": "Turn on Sauté mode. Whisk 0.25 cup atta with 0.5 cup water until completely smooth. Slowly pour the slurry into the pot while stirring continuously to prevent lumps. Simmer 10 minutes until the gravy thickens and oil rises to the surface. Turn off the Instant Pot. Serve hot, topped with ginger juliennes, cilantro, chopped green chillies, and a squeeze of lemon."
+}

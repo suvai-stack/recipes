@@ -1,7 +1,7 @@
 {
     "title": "Keda Virundhu: Mutton Kuzhambu (Village Mutton Gravy)",
     "description": "A rustic, robust village-style mutton gravy prepared with a fresh wet-ground masala paste of coconut, ginger, garlic, and toasted spices, finished with sesame oil in an Instant Pot or pressure cooker.",
-    "tags": ["Mutton", "Kuzhambu", "Village Style", "Wet Grind", "Instant Pot", "Pressure Cooker", "Tamil Nadu"],
+    "tags": ["Mutton", "South Indian", "Instant Pot"],
     "note": "COCONUT NOTE: If using store-bought frozen grated coconut, avoid dry roasting it to prevent an unwanted oily smell. Add it directly to the blender at the end.",
     "sections": [
         {
@@ -26,7 +26,7 @@
                 { "text": "Tomatoes (Medium, thinly sliced)", "base": 2, "unit": "units" },
                 { "text": "Curry Leaves", "base": 1, "unit": "bunch" },
                 { "text": "Sesame oil (Gingelly oil)", "base": 3, "unit": "tbsp" },
-                { "text": "Rock Salt", "base": 1, "unit": "to taste" }
+                { "text": "Rock Salt", "unit": "to taste" }
             ]
         },
         {

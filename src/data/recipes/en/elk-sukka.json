@@ -1,0 +1,96 @@
+{
+    "title": "Elk Sukka (Slow-Cooked Meat / Mutton Sukka)",
+    "description": "A fiery, slow-braised dry roast (sukka) tailored for lean game meats like elk or traditional mutton. Simmered low and covered with shallots, curry leaves, and a robust blend of South Indian dry spices until the meat is fork-tender and coated in a glossy, dark reduction.",
+    "tags": ["Mutton", "South Indian"],
+    "note": "LEAN CUT & HEAT NOTE: Lean meats (especially elk, venison, lean mutton, and even chicken breast) must always be cooked on low heat with the pan covered to slow-braise in their own trapped moisture. High heat rapidly tightens lean protein fibers, causing moisture loss and making the meat dry, tough, and chewy. (Note: For chicken breast, reduce the covered cooking time to ~12-15 minutes on low heat). SPICE WARNING: Combining dry red chillies, crushed black pepper, and regular red chilli powder produces intense South Indian heat — reduce chilli powder for children or milder palates.",
+    "sections": [
+        {
+            "name": "Meat & Marinade",
+            "items": [
+                { "text": "Elk Meat or Mutton (Fully thawed, cut into small cubes)", "base": 1, "unit": "lb" },
+                { "text": "Turmeric Powder (For marinade)", "base": 0.5, "unit": "tsp" },
+                { "text": "Red Chilli Powder (Half regular, half Kashmiri; reduce for children)", "base": 1, "unit": "tbsp" },
+                { "text": "Salt (For marinade)", "unit": "to taste" }
+            ]
+        },
+        {
+            "name": "Aromatics & Tempering",
+            "items": [
+                { "text": "Sesame Oil (Gingelly oil)", "base": 3, "unit": "tbsp" },
+                { "text": "Shallots / Small Onions (Chopped)", "base": 1, "unit": "cup" },
+                { "text": "Dry Red Chillies", "base": 5, "unit": "units" },
+                { "text": "Fresh Curry Leaves", "base": 2, "unit": "sprigs" },
+                { "text": "Fresh Ginger Garlic Paste (Optional substitute if not using dry powders)", "base": 2, "unit": "tbsp" }
+            ]
+        },
+        {
+            "name": "Sukka Spice Blend",
+            "items": [
+                { "text": "Cumin Powder", "base": 1, "unit": "tbsp" },
+                { "text": "Coriander Powder", "base": 1, "unit": "tbsp" },
+                { "text": "Garam Masala, Chicken Masala, or Kari Masala", "base": 1, "unit": "tbsp" },
+                { "text": "Fresh Crushed Black Pepper", "base": 1, "unit": "tbsp" },
+                { "text": "Fennel Seed Powder", "base": 1, "unit": "tsp" },
+                { "text": "Granulated Garlic (Or use fresh ginger-garlic paste above)", "base": 1, "unit": "tbsp" },
+                { "text": "Granulated Onion (Or use fresh ginger-garlic paste above)", "base": 1, "unit": "tbsp" },
+                { "text": "Dry Ginger Powder (Or use fresh ginger-garlic paste above)", "base": 1.5, "unit": "tsp" },
+                { "text": "Hot Water (For slow cooking)", "base": 0.5, "unit": "cup" }
+            ]
+        }
+    ],
+    "steps": [
+        {
+            "title": "Step A: Marinate Meat",
+            "badge": "30-45 Min Rest",
+            "timers": [
+                { "name": "Marinade Rest", "secs": 1800 }
+            ],
+            "instructions": [
+                "Coat the thawed, cubed elk meat (or mutton) thoroughly with salt, 0.5 tsp turmeric powder, and 1 tbsp red chilli powder (mix of regular and Kashmiri).",
+                "Set aside to marinate for 30 to 45 minutes to let the seasonings penetrate and tenderize the meat."
+            ]
+        },
+        {
+            "title": "Step B: Sauté Aromatics",
+            "badge": "Golden Shallots",
+            "timers": [
+                { "name": "Sauté Aromatics", "secs": 300 }
+            ],
+            "instructions": [
+                "Heat 3 tbsp sesame oil (gingelly oil) in a heavy-bottomed pan or kadai over medium heat.",
+                "Add 5 to 6 dry red chillies and 2 sprigs of fresh curry leaves. Sauté until fragrant.",
+                "Add 1 cup chopped shallots and sauté until they turn evenly golden brown.",
+                "If substituting fresh ginger-garlic paste (2 tbsp) in place of the granulated dry powders, add it now and sauté until the raw smell completely disappears."
+            ]
+        },
+        {
+            "title": "Step C: Flash Sear & Spice Integration",
+            "badge": "30 Sec High Sear",
+            "timers": [
+                { "name": "High Sear", "secs": 30 }
+            ],
+            "instructions": [
+                "Add the marinated elk meat to the pan. Increase the heat to high and sear the meat quickly for 30 seconds, tossing vigorously.",
+                "Reduce the heat to medium-low.",
+                "Stir in 1 tbsp cumin powder, 1 tbsp coriander powder, 1 tbsp garam/chicken/kari masala, 1 tsp fennel seed powder, 1 tbsp crushed black pepper, and the granulated onion (1 tbsp), granulated garlic (1 tbsp), and dry ginger powder (1.5 tsp) if using dry aromatics. Stir well to coat every piece."
+            ]
+        },
+        {
+            "title": "Step D: Low-Heat Slow Cook (Covered)",
+            "badge": "30 Min Low Simmer",
+            "timers": [
+                { "name": "Covered Slow Cook", "secs": 1800 }
+            ],
+            "instructions": [
+                "Pour in enough hot water (~0.5 cup) to aid cooking without diluting flavor.",
+                "Cover the pot with a tight-fitting lid and turn the heat to low.",
+                "Slow cook for approximately 30 minutes, stirring occasionally. (Note: For chicken breast, cook for ~12-15 minutes on low heat). Keeping the pan covered over low heat allows lean meats (elk, mutton, or chicken breast) to gently steam and braise into juicy, tender morsels without seizing into a chewy, tough texture."
+            ]
+        }
+    ],
+    "showLayeringTable": false,
+    "dumTitle": "Step E: Uncover & Dry Roast (Sukka Finish)",
+    "dumBadge": "Glossy Dark Glaze",
+    "dumTimer": 300,
+    "dumInstruction": "Remove the lid and raise heat to medium. Sauté for 3 to 5 minutes until all remaining moisture evaporates and the concentrated masala paste coats the meat tightly in a glossy, dark reduction. Turn off the heat and finish with fresh curry leaves. Serve piping hot with steamed rice, rasam, curd rice, or parotta."
+}

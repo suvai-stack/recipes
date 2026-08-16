@@ -73,12 +73,21 @@ const backLink = lang === 'en' ? `${import.meta.env.BASE_URL}/` : `${import.meta
                 <span class="card-chevron">▼</span>
             </div>
             <div class="card-body">
-                {sec.items.map((item) => (
-                    <label class="interactive-item">
-                        <input type="checkbox" />
-                        <span class="item-text">{item.text}: <span class="qty-num" data-base={item.base}>{item.base}</span> {item.unit}.</span>
-                    </label>
-                ))}
+                {sec.items.map((item: any) => {
+                    const isToTaste = item.base === undefined || item.base === null || (typeof item.unit === 'string' && (item.unit.toLowerCase().includes('to taste') || item.unit.includes('தேவைக்கேற்ப')));
+                    return (
+                        <label class="interactive-item">
+                            <input type="checkbox" />
+                            <span class="item-text">
+                                {item.text}{isToTaste ? (
+                                    <span>: {item.unit}.</span>
+                                ) : (
+                                    <span>: <span class="qty-num" data-base={item.base}>{item.base}</span> {item.unit}.</span>
+                                )}
+                            </span>
+                        </label>
+                    );
+                })}
             </div>
         </div>
     ))}

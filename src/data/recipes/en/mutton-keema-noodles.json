@@ -1,7 +1,7 @@
 {
     "title": "Mutton Keema Stir Fry Noodles",
     "description": "South Indian style high-heat wok noodles featuring a slow-cooked dry keema curry base, layered with vibrant vegetables and a savory umami-forward sauce. Quick assembly after keema prep.",
-    "tags": ["Mutton", "Ground Meat", "Noodles", "Wok", "Stir Fry", "South Indian", "Keema", "Nepalese"],
+    "tags": ["Mutton", "Noodles", "South Indian"],
     "note": "CRITICAL: Keema must be cooked separately (15 mins) first as a dry curry with no added water. High heat wok cooking requires constant tossing. All vegetables and noodles must be prepped before final wok assembly.",
     "sections": [
         {
@@ -18,7 +18,7 @@
                 { "text": "Garam Masala Powder", "base": 1, "unit": "tbsp" },
                 { "text": "Lemon Juice", "base": 1, "unit": "whole" },
                 { "text": "Cooking Oil or Ghee", "base": 2, "unit": "tbsp" },
-                { "text": "Salt", "base": 1, "unit": "to taste" }
+                { "text": "Salt", "unit": "to taste" }
             ]
         },
         {
@@ -45,7 +45,7 @@
                 { "text": "Garlic (Minced)", "base": 2, "unit": "cloves" },
                 { "text": "Eggs", "base": 3, "unit": "units" },
                 { "text": "Black Pepper Powder", "base": 1, "unit": "tsp" },
-                { "text": "Salt", "base": 1, "unit": "to taste (adjust for sauce sodium)" }
+                { "text": "Salt", "unit": "to taste (adjust for sauce sodium)" }
             ]
         },
         {

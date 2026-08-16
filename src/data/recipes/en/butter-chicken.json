@@ -1,7 +1,7 @@
 {
     "title": "Restaurant Style Butter Chicken",
     "description": "Rich, velvety Murgh Makhani optimized with juicy boneless chicken thighs grilled in the air fryer and finished with a high-fat heavy cream emulsification.",
-    "tags": ["Chicken", "Thigh Meat", "Air Fryer", "Creamy", "Makhani", "North Indian"],
+    "tags": ["Chicken", "North Indian"],
     "note": "CRITICAL: Using 40% fat heavy whipping cream requires a strict 3-4 tbsp limit. Higher fat content splits easily if overheated; integrate on lowest heat setting.",
     "sections": [
         {
@@ -12,7 +12,7 @@
                 { "text": "Kashmiri Chilli Powder", "base": 0.5, "unit": "tbsp" },
                 { "text": "Turmeric Powder", "base": 1, "unit": "pinch" },
                 { "text": "Lemon Juice", "base": 1, "unit": "tsp" },
-                { "text": "Salt", "base": 1, "unit": "to taste" }
+                { "text": "Salt", "unit": "to taste" }
             ]
         },
         {
