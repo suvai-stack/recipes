@@ -1,0 +1,104 @@
+{
+    "title": "Creamy Butter Chicken Karahi",
+    "description": "A bold, dhaba-style Chicken Karahi made with large 2-inch cubes of Costco boneless chicken thighs seared on high flame, enriched with Better Than Bouillon chicken paste, a generous cube of butter, and heavy cream, and finished with garam/kari masala, kasoori methi, fresh curry leaves, almond-cut green chillies, and lemon.",
+    "tags": ["Chicken", "North Indian"],
+    "note": "SALT & CREAM NOTE: Better Than Bouillon Chicken Base paste is already quite salty — taste the gravy before adding extra salt. Cutting the Costco boneless chicken thighs into generous 2-inch cubes keeps them juicy during high-flame karahi cooking. Drop the flame to medium-low before stirring in the 3 tbsp heavy cream so it emulsifies smoothly without splitting. Adapted from Chef Ajay Kumar's Chicken Karahi.",
+    "sections": [
+        {
+            "name": "Fresh Karahi Spice Mix (Dry Roast & Coarsely Grind)",
+            "items": [
+                { "text": "Coriander Seeds", "base": 2, "unit": "tbsp" },
+                { "text": "Cumin Seeds", "base": 2, "unit": "tbsp" },
+                { "text": "Black Peppercorns", "base": 1, "unit": "tbsp" },
+                { "text": "Dried Red Chillies", "base": 4, "unit": "units" }
+            ]
+        },
+        {
+            "name": "Chicken & Karahi Base",
+            "items": [
+                { "text": "Costco Boneless Chicken Thighs (Cut into large ~2-inch cubes)", "base": 2, "unit": "bags (~1 kg)" },
+                { "text": "Cooking Oil", "base": 100, "unit": "ml" },
+                { "text": "Ginger Garlic Paste", "base": 3, "unit": "tbsp" },
+                { "text": "Big Tomatoes (Halved)", "base": 2, "unit": "units" },
+                { "text": "Better Than Bouillon Chicken Base Paste", "base": 1.5, "unit": "tbsp" },
+                { "text": "Turmeric Powder", "base": 1, "unit": "tsp" },
+                { "text": "Kashmiri Red Chilli Powder", "base": 2, "unit": "tbsp" },
+                { "text": "Black Pepper Powder", "base": 1, "unit": "tbsp" },
+                { "text": "Freshly Ground Karahi Masala (From spice mix above)", "base": 2, "unit": "tbsp" },
+                { "text": "Warm Water (As needed to adjust consistency)", "base": 0.5, "unit": "cup" },
+                { "text": "Salt (Adjust carefully — bouillon paste already contains salt)", "unit": "to taste" }
+            ]
+        },
+        {
+            "name": "Butter, Cream & Aromatic Finish",
+            "items": [
+                { "text": "Butter (2-3 inch cube, added before covering)", "base": 1, "unit": "cube (2-3 inch)" },
+                { "text": "Heavy Whipping Cream", "base": 3, "unit": "tbsp" },
+                { "text": "Garam Masala or Kari Masala (2 mins before flame off)", "base": 1, "unit": "tbsp" },
+                { "text": "Toasted Kasoori Methi (Dried Fenugreek Leaves, crushed)", "base": 1, "unit": "tbsp" },
+                { "text": "Fresh Curry Leaves", "base": 2, "unit": "sprigs" },
+                { "text": "Green Chillies (Almond-cut / diagonally sliced)", "base": 5, "unit": "units" },
+                { "text": "Fresh Coriander / Cilantro Leaves (Chopped)", "base": 2, "unit": "tbsp" },
+                { "text": "Fresh Ginger (Thinly sliced juliennes)", "base": 1, "unit": "tbsp" },
+                { "text": "Fresh Lemon (For juice)", "base": 0.5, "unit": "unit" }
+            ]
+        }
+    ],
+    "steps": [
+        {
+            "title": "Step A: Dry Roast & Grind Karahi Masala",
+            "badge": "3 Min Low-Flame Roast",
+            "timers": [
+                { "name": "Dry Roast Spices", "secs": 180 }
+            ],
+            "instructions": [
+                "Dry roast 2 tbsp coriander seeds, 2 tbsp cumin seeds, 1 tbsp black peppercorns, and 4 dried red chillies in a dry pan over low flame for 2-3 minutes until aromatic and slightly brown (do not burn).",
+                "Let cool briefly, then grind or pound to a coarse, rustic Karahi Masala consistency. Set aside."
+            ]
+        },
+        {
+            "title": "Step B: High-Flame Chicken Sear",
+            "badge": "5 Min Sear (~50% Done)",
+            "timers": [
+                { "name": "Sear Chicken", "secs": 300 }
+            ],
+            "instructions": [
+                "Heat 100 ml cooking oil in a wide karahi or heavy-bottomed wok over high flame.",
+                "Add the 2 bags of Costco boneless chicken thighs cut into large ~2-inch cubes. Sear on high flame for 4-5 minutes, tossing occasionally until the chicken takes on good golden color and reaches about 50% doneness.",
+                "Carefully spoon out and remove any excess oil from the pan before building the base."
+            ]
+        },
+        {
+            "title": "Step C: Tomato Base, Bouillon & Spices",
+            "badge": "7-8 Min Steam + 2 Min Bhuna",
+            "timers": [
+                { "name": "Steam Tomatoes", "secs": 480 },
+                { "name": "Cook Spices", "secs": 120 }
+            ],
+            "instructions": [
+                "Add 3 tbsp ginger-garlic paste and stir well on medium-high flame until the raw aroma disappears.",
+                "Add the 2 big halved/chopped tomatoes and a splash of warm water. Cover and cook for 7-8 minutes until the tomatoes turn completely pulpy and skins loosen.",
+                "Remove the loosened tomato skins with tongs and mash the tomatoes thoroughly into the sauce using the back of a fork.",
+                "Keep the flame on medium. Add 1.5 tbsp Better Than Bouillon chicken paste, 1 tsp turmeric powder, 2 tbsp Kashmiri red chilli powder, 1 tbsp black pepper powder, 2 tbsp freshly ground Karahi masala, and salt to taste (taste first since the bouillon paste is salty).",
+                "Stir thoroughly and cook the dry spices for 1-2 minutes until fragrant and deeply colored."
+            ]
+        },
+        {
+            "title": "Step D: Butter-Covered Cook & Heavy Cream",
+            "badge": "4-5 Min Covered Simmer",
+            "timers": [
+                { "name": "Covered Butter Cook", "secs": 300 }
+            ],
+            "instructions": [
+                "Before covering the pan, add the 2-3 inch cube of butter directly into the karahi.",
+                "Cover tightly and cook on medium flame for 4-5 minutes until the butter melts into a rich, silky gravy and the large 2-inch chicken cubes are cooked through and tender.",
+                "Uncover, lower the flame to medium-low, and stir in 3 tbsp heavy whipping cream until smoothly emulsified into the sauce."
+            ]
+        }
+    ],
+    "showLayeringTable": false,
+    "dumTitle": "Step E: 2-Minute Aromatic Finish & Lemon",
+    "dumBadge": "2 Min Final Simmer",
+    "dumTimer": 120,
+    "dumInstruction": "About 2 minutes before turning off the flame, add 1 tbsp garam masala (or kari masala), 1 tbsp crushed toasted kasoori methi, 2 sprigs fresh curry leaves, and the almond-cut (diagonally sliced) green chillies. Give a gentle stir and simmer for 2 minutes so the aromatics infuse into the creamy karahi sauce. Turn off the heat, garnish with 2 tbsp chopped fresh coriander leaves and sliced ginger juliennes, and squeeze half a lemon over the top to brighten the dish and balance the richness. Serve hot straight from the karahi with naan, roti, or steamed rice."
+}
