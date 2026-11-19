@@ -61,6 +61,32 @@ const backLink = lang === 'en' ? `${import.meta.env.BASE_URL}/` : `${import.meta
         <div>{recipe.note}</div>
     </div>
 
+    {(recipe.referenceVideo || recipe.modifications) && (
+        <div class="reference-box">
+            {recipe.referenceVideo && (
+                <div class="ref-video-row">
+                    <span>🎬</span>
+                    <div>
+                        <strong>{t('ref.video')}:</strong>{' '}
+                        <a href={recipe.referenceVideo.url} target="_blank" rel="noopener noreferrer">
+                            {recipe.referenceVideo.title || recipe.referenceVideo.url}
+                        </a>
+                    </div>
+                </div>
+            )}
+            {recipe.modifications && recipe.modifications.length > 0 && (
+                <div class="ref-mods">
+                    <strong>{t('ref.modifications')}:</strong>
+                    <ul>
+                        {recipe.modifications.map((mod: string) => (
+                            <li>{mod}</li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+        </div>
+    )}
+
     <h2 id="misen">{t('section.prep')}</h2>
 
     {recipe.sections.map((sec) => (
@@ -406,6 +432,44 @@ const backLink = lang === 'en' ? `${import.meta.env.BASE_URL}/` : `${import.meta
         display: flex;
         gap: 10px;
         font-size: 13px;
+    }
+
+    .reference-box {
+        background-color: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-left: 3px solid var(--primary-color);
+        color: var(--text-color);
+        border-radius: 8px;
+        padding: 12px;
+        margin-bottom: 14px;
+        font-size: 13px;
+    }
+    .ref-video-row {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+    }
+    .ref-video-row a {
+        color: var(--primary-color);
+        font-weight: 600;
+        text-decoration: underline;
+        word-break: break-word;
+    }
+    .ref-mods {
+        margin-top: 8px;
+        padding-top: 8px;
+        border-top: 1px dashed var(--border-color);
+    }
+    .ref-mods ul {
+        margin: 6px 0 0 0;
+        padding-left: 18px;
+    }
+    .ref-mods li {
+        margin-bottom: 4px;
+        line-height: 1.4;
+    }
+    .ref-mods li:last-child {
+        margin-bottom: 0;
     }
 
     .interactive-item {

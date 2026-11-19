@@ -11,6 +11,8 @@ export const ui = {
     'layer.top': 'Top Layer',
     'layer.rice': 'Rice Layer',
     'layer.gravy': 'Gravy Base',
+    'ref.video': 'Reference Video',
+    'ref.modifications': 'Modifications from Original',
   },
   ta: {
     'nav.home': '← முகப்பு',
@@ -24,6 +26,8 @@ export const ui = {
     'layer.top': 'மேல் அடுக்கு',
     'layer.rice': 'சாதம் அடுக்கு',
     'layer.gravy': 'கிரேவி அடிப்படை',
+    'ref.video': 'குறிப்பு வீடியோ',
+    'ref.modifications': 'அசல் ரெசிபியிலிருந்து மாற்றங்கள்',
   }
 } as const;
 
